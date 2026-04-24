@@ -20,8 +20,7 @@ export default function PrivacyPage() {
           <p>
             HearthCode Studio is een Nederlandse eenmanszaak, gevestigd in Hoenderloo.
             KvK-inschrijving is in behandeling (startdatum 1 mei 2026). Voor vragen over dit
-            privacybeleid:{' '}
-            <a href="mailto:hallo@hearthcodestudio.com">hallo@hearthcodestudio.com</a>.
+            privacybeleid: <a href="mailto:info@hearthcodestudio.com">info@hearthcodestudio.com</a>.
           </p>
         </section>
 
@@ -40,7 +39,7 @@ export default function PrivacyPage() {
           <h2>Contact via e-mail</h2>
           <p>
             Als je contact opneemt via{' '}
-            <a href="mailto:hallo@hearthcodestudio.com">hallo@hearthcodestudio.com</a>, bewaart
+            <a href="mailto:info@hearthcodestudio.com">info@hearthcodestudio.com</a>, bewaart
             HearthCode Studio je bericht en e-mailadres zolang dat nodig is om je vraag te
             beantwoorden, en maximaal twee jaar daarna voor eventuele opvolging. Je kunt op elk
             moment vragen om verwijdering.

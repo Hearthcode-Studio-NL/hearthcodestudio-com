@@ -51,8 +51,8 @@ export default function AccessibilityStatementPage() {
           <h2>Problemen melden</h2>
           <p>
             Stuur een e-mail naar{' '}
-            <a href="mailto:hallo@hearthcodestudio.com?subject=Toegankelijkheid">
-              hallo@hearthcodestudio.com
+            <a href="mailto:info@hearthcodestudio.com?subject=Toegankelijkheid">
+              info@hearthcodestudio.com
             </a>
             . Een reactie volgt binnen twee werkdagen. Als een gerapporteerd probleem niet binnen
             zes weken kan worden opgelost, wordt dit hier genoemd met een toelichting en een
