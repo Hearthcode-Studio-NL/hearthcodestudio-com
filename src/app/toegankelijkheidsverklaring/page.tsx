@@ -31,10 +31,10 @@ export default function AccessibilityStatementPage() {
           <p>
             De site is ontworpen en gebouwd met toegankelijkheid als uitgangspunt: donker-eerst met
             voldoende contrast (minimaal 4.5:1 voor bodytekst), toetsenbordnavigatie, zichtbare
-            focus-indicatoren, semantische HTML, en respect voor <code>prefers-reduced-motion</code>
-            . Geautomatiseerde controles (axe-core in unit tests, Lighthouse in CI) dekken circa
-            30–40% van de WCAG-richtlijnen af; de overige punten worden handmatig gecontroleerd vóór
-            elke release.
+            focus-indicatoren, semantische HTML, en respect voor gebruikersvoorkeuren rond beperkte
+            beweging. Geautomatiseerde controles (axe-core in unit tests, Lighthouse in CI) dekken
+            circa 30–40% van de WCAG-richtlijnen af; de overige punten worden handmatig
+            gecontroleerd vóór elke release.
           </p>
         </section>
 

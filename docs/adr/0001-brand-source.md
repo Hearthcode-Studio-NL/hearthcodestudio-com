@@ -25,7 +25,7 @@ We adopt **brand path A — HearthCode-branded** per [[../../../HearthCode-Vault
 - **Favicons + `site.webmanifest`:** verbatim copies from the vault, placed under `public/` for static serving. `favicon.ico` also lives at `src/app/favicon.ico` so Next 16's App Router convention picks it up.
 - **Logos:** `public/brand/logo.png` (full colour transparent), `public/brand/logo-leather.png` (OG image), `public/brand/logo-mark.png` (mark-only).
 
-Tokens derived → at commit `{{FILL_AFTER_FIRST_COMMIT}}` — this placeholder gets replaced with the first commit's SHA once step 7 of the Day-1 sequence has landed, giving a precise vault→project snapshot reference.
+Tokens derived → at commit `f44f31af8d51fb1511342d25f475144218dbbb9f` — this is the initial scaffold commit that first put `src/styles/brand-tokens.css` and the vault favicons/logos into the project repo. Future vault token updates will land as their own commits with a `chore: sync brand tokens from vault` style message, referencing the vault `colors_and_type.css` commit they track.
 
 ## Alternatives considered
 
