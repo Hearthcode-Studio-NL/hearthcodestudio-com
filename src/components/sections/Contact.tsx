@@ -7,10 +7,10 @@ export function Contact() {
         slower when something non-trivial is in flight.
       </p>
       <a
-        href="mailto:hallo@hearthcodestudio.com"
+        href="mailto:info@hearthcodestudio.com"
         className="font-heading inline-block text-2xl text-[color:var(--color-accent-gold)] md:text-3xl"
       >
-        hallo@hearthcodestudio.com
+        info@hearthcodestudio.com
       </a>
       <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm">
         <li>

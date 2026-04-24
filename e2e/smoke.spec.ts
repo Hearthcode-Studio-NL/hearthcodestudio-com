@@ -4,12 +4,14 @@ test('home page loads with approved tagline and mailto CTA', async ({ page }) =>
   await page.goto('/');
 
   await expect(page).toHaveTitle(/HearthCode Studio/i);
-  await expect(page.getByRole('heading', { level: 1 })).toContainText(/HearthCode/i);
+  // The visible h1 wraps the logo <Image> — check the computed accessible
+  // name (from the image's alt) rather than textContent.
+  await expect(page.getByRole('heading', { level: 1 })).toHaveAccessibleName(/HearthCode Studio/i);
   await expect(page.getByText(/Digital craft, deeply rooted\./)).toBeVisible();
 
   const cta = page.getByRole('link', { name: /start a conversation/i }).first();
   await expect(cta).toBeVisible();
-  await expect(cta).toHaveAttribute('href', /^mailto:hallo@hearthcodestudio\.com/);
+  await expect(cta).toHaveAttribute('href', /^mailto:info@hearthcodestudio\.com/);
 });
 
 test('footer exposes the legal pages with correct hrefs', async ({ page }) => {
