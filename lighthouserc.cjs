@@ -25,7 +25,12 @@ module.exports = {
 
         'largest-contentful-paint': ['error', { maxNumericValue: 2500 }],
         'cumulative-layout-shift': ['error', { maxNumericValue: 0.1 }],
-        'interaction-to-next-paint': ['warn', { maxNumericValue: 200 }],
+
+        // INP needs a real user interaction during the trace to produce a
+        // value; Lighthouse CI runs against static pages with no input, so
+        // the metric is always null and the assertion noise is unhelpful.
+        // Revisit if the site grows interactive surfaces.
+        'interaction-to-next-paint': 'off',
 
         'uses-http2': 'off',
         'unused-javascript': 'off',
