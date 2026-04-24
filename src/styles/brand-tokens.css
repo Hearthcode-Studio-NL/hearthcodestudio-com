@@ -1,0 +1,434 @@
+/* ============================================================
+   HearthCode Studio — Colors + Typography foundations
+   Dark-first. Warm browns, engraved-stone serifs, amber glow.
+
+   Source: HearthCode-Vault/06-Brand-Assets/css/colors_and_type.css
+   Copied for path A (HearthCode-branded) per Brand-Wiring-Recipe.
+   Google Fonts @import stripped — fonts are self-hosted via @fontsource/*
+   (imported from globals.css) to satisfy EAA / GDPR constraints.
+   ============================================================ */
+
+:root {
+  /* ---------- Primary palette ---------- */
+  --color-bg-primary: #2d2119; /* Deep brown — main background */
+  --color-bg-secondary: #1e3a3a; /* Dark teal — accent sections, app icon bg */
+  --color-accent-gold: #d4a574; /* Warm gold — wordmark, primary accent */
+  --color-accent-flame: #ff8c42; /* Warm orange — CTAs, flame highlights */
+  --color-circuit-teal: #1e5f60; /* Deeper teal — borders, dividers */
+  --color-leaf-green: #7fb469; /* Muted green — subtle accent */
+  --color-text-cream: #f5e9d0; /* Ivory cream — body text on dark */
+  --color-text-deep: #3a2817; /* Deep brown-black — text on light */
+
+  /* ---------- Functional (derived) ---------- */
+  --color-border: rgba(212, 165, 116, 0.2);
+  --color-border-strong: rgba(212, 165, 116, 0.4);
+  --color-surface-raised: #3a2d20; /* Card / modal */
+  --color-surface-sunken: #1f1710; /* Input / inset */
+  --color-overlay: rgba(29, 22, 15, 0.8);
+  --color-glow-flame: rgba(255, 140, 66, 0.4);
+  --color-glow-gold: rgba(212, 165, 116, 0.3);
+
+  /* ---------- Semantic ---------- */
+  --color-success: #7fb469;
+  --color-warning: #e8b873;
+  --color-error: #d4634a; /* fills, icons, large text only */
+  --color-error-text: #e89178; /* body-size error strings on dark — WCAG AA */
+  --color-info: #6fa0a0;
+
+  /* ---------- Foreground tokens (convenience) ---------- */
+  /* All opacities tuned so text at 12px+ passes WCAG AA (≥4.5:1) on --color-bg-primary. */
+  --fg-1: var(--color-text-cream); /* primary text on dark — 13:1 */
+  --fg-2: rgba(245, 233, 208, 0.78); /* secondary text       — 8.0:1 */
+  --fg-3: rgba(245, 233, 208, 0.62); /* tertiary / captions  — 5.2:1 */
+  --fg-4: rgba(245, 233, 208, 0.4); /* disabled / placeholders — large text only */
+  --fg-on-gold: var(--color-text-deep); /* text on gold button */
+
+  /* ---------- Type families ----------
+     --font-display : uppercase Roman inscriptional — matches the "HEARTHCODE"
+                      glyphs on the leather banner (Cinzel = Trajan revival).
+     --font-script  : formal calligraphic italic — matches the "Studio" line
+                      on the banner. Use for tagline / secondary wordmark only.
+     --font-body    : all UI + paragraphs.
+     --font-mono    : code, tokens, numerics.                                  */
+  --font-display: 'Cinzel', 'Trajan Pro', 'Libre Caslon Text', Georgia, serif;
+  --font-script: 'Cormorant Garamond', 'Playfair Display', 'EB Garamond', Georgia, serif;
+  --font-body: 'Inter', 'Satoshi', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Menlo', ui-monospace, monospace;
+
+  /* ---------- Type scale (modular, 1.25) ---------- */
+  --text-display: 3.5rem; /* 56px */
+  --text-h1: 2.5rem; /* 40px */
+  --text-h2: 2rem; /* 32px */
+  --text-h3: 1.5rem; /* 24px */
+  --text-h4: 1.25rem; /* 20px */
+  --text-body-lg: 1.125rem; /* 18px */
+  --text-body: 1rem; /* 16px */
+  --text-small: 0.875rem; /* 14px */
+  --text-caption: 0.75rem; /* 12px */
+
+  /* ---------- Line heights ---------- */
+  --line-tight: 1.2;
+  --line-snug: 1.4;
+  --line-normal: 1.6;
+  --line-relaxed: 1.75;
+
+  /* ---------- Tracking ---------- */
+  --tracking-display: -0.005em; /* Cinzel: tight, not loose */
+  --tracking-caps: 0.06em; /* Inter small-caps & labels */
+  --tracking-body: 0;
+
+  /* ---------- Spacing (8-pt grid) ---------- */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+  --space-12: 6rem;
+  --space-16: 8rem;
+
+  /* ---------- Radii ---------- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* ---------- Shadows (dark-aware) ---------- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+
+  /* ---------- Glow (signature look) ---------- */
+  --glow-flame: 0 0 24px rgba(255, 140, 66, 0.4), 0 0 48px rgba(255, 140, 66, 0.2);
+  --glow-gold: 0 0 20px rgba(212, 165, 116, 0.3);
+  --glow-subtle: 0 0 12px rgba(212, 165, 116, 0.15);
+
+  /* ---------- Motion ---------- */
+  --duration-instant: 100ms;
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 800ms;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.42, 0, 1, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---------- Layout containers ---------- */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
+  --container-max: 1440px;
+
+  /* ---------- Icon sizing ---------- */
+  --icon-xs: 12px;
+  --icon-sm: 16px;
+  --icon-md: 20px;
+  --icon-lg: 24px;
+  --icon-xl: 32px;
+  --icon-2xl: 48px;
+}
+
+/* ============================================================
+   Base + semantic element styles
+   ============================================================ */
+
+html,
+body {
+  background: var(--color-bg-primary);
+  color: var(--fg-1);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--line-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display — always Cinzel. Engraved-stone feel, caps or small-caps. */
+h1,
+h2,
+h3,
+.hc-display {
+  font-family: var(--font-display);
+  color: var(--fg-1);
+  font-weight: 500;
+  line-height: var(--line-tight);
+  letter-spacing: var(--tracking-display);
+  margin: 0;
+}
+
+.hc-display {
+  font-size: var(--text-display);
+  font-weight: 700;
+}
+h1 {
+  font-size: var(--text-h1);
+  font-weight: 700;
+}
+h2 {
+  font-size: var(--text-h2);
+  font-weight: 500;
+}
+h3 {
+  font-size: var(--text-h3);
+  font-weight: 500;
+  line-height: var(--line-snug);
+}
+
+/* H4 and below switch to Inter — Cinzel gets unwieldy small. */
+h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-h4);
+  font-weight: 600;
+  line-height: var(--line-snug);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-accent-gold);
+  margin: 0;
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--line-normal);
+  max-width: 72ch;
+  margin: 0 0 var(--space-4) 0;
+  color: var(--fg-1);
+}
+
+.hc-lede {
+  font-size: var(--text-body-lg);
+  line-height: var(--line-snug);
+  color: var(--fg-2);
+  max-width: 60ch;
+}
+
+small,
+.hc-small {
+  font-size: var(--text-small);
+  color: var(--fg-2);
+  line-height: var(--line-snug);
+}
+
+.hc-caption {
+  font-size: var(--text-caption);
+  color: var(--fg-3);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+code,
+kbd,
+samp,
+pre,
+.hc-mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  font-feature-settings: 'liga' 0;
+}
+
+code {
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.1em 0.35em;
+  color: var(--color-accent-gold);
+}
+
+pre {
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  overflow-x: auto;
+  color: var(--fg-1);
+  line-height: var(--line-snug);
+}
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+a {
+  color: var(--color-accent-gold);
+  text-decoration: none;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    text-decoration-color var(--duration-fast) var(--ease-out);
+}
+/* Inline links inside running text need a non-color indicator to pass
+   WCAG 2.2 SC 1.4.1 (Use of Color) / SC 2.4.7, since accent-gold on
+   cream body text is 1.84:1. The underline is the accessible fallback;
+   button- and card-style links stay clean because they aren't inside
+   text-flow elements. */
+:is(p, li, blockquote, dd, dt, figcaption, summary) a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-6) 0;
+}
+
+/* Selection takes the gold accent. */
+::selection {
+  background: var(--color-glow-gold);
+  color: var(--fg-1);
+}
+
+/* Focus ring, always visible. */
+:focus-visible {
+  outline: 2px solid var(--color-accent-gold);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================================
+   Light-surface utility — swaps accent-gold to deep brown so
+   text stays readable on cream backgrounds. Apply on any element
+   whose background is --color-text-cream or lighter.
+   Gold-on-cream = 1.85:1 (fails hard); deep-on-cream = 11.67:1.
+   ============================================================ */
+.hc-on-light {
+  --color-accent-gold: var(--color-text-deep);
+  --fg-1: var(--color-text-deep);
+  --fg-2: rgba(58, 40, 23, 0.78);
+  --fg-3: rgba(58, 40, 23, 0.62);
+  color: var(--color-text-deep);
+}
+.hc-on-light a {
+  color: var(--color-text-deep);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* ============================================================
+   Wordmark — the "HearthCode / Studio" lockup as seen on banners
+   (LinkedIn cover, leather hero, etc). Set --hc-wordmark-size to
+   control scale; everything else is proportional. Gold by default;
+   drop inside .hc-on-light to auto-swap to deep brown.
+   ============================================================ */
+.hc-wordmark {
+  --hc-wordmark-size: 56px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  color: var(--color-accent-gold);
+  text-align: center;
+}
+.hc-wordmark__primary {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--hc-wordmark-size);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.hc-wordmark__rule {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  margin-top: 0.18em;
+  font-family: var(--font-script);
+  font-style: italic;
+  font-weight: 500;
+  font-size: calc(var(--hc-wordmark-size) * 0.36);
+  letter-spacing: 0.04em;
+}
+.hc-wordmark__rule::before,
+.hc-wordmark__rule::after {
+  content: '';
+  flex: 1 1 0;
+  min-width: calc(var(--hc-wordmark-size) * 1.4);
+  height: 1px;
+  background: currentColor;
+  position: relative;
+}
+.hc-wordmark__rule::before {
+  background:
+    linear-gradient(
+      to right,
+      transparent 0,
+      transparent 0.35em,
+      currentColor 0.35em,
+      currentColor calc(100% - 0.35em),
+      transparent calc(100% - 0.35em)
+    ),
+    linear-gradient(45deg, transparent 46%, currentColor 46%, currentColor 54%, transparent 54%)
+      left center / 0.7em 0.7em no-repeat;
+}
+.hc-wordmark__rule::after {
+  background:
+    linear-gradient(
+      to right,
+      transparent 0,
+      transparent 0.35em,
+      currentColor 0.35em,
+      currentColor calc(100% - 0.35em),
+      transparent calc(100% - 0.35em)
+    ),
+    linear-gradient(45deg, transparent 46%, currentColor 46%, currentColor 54%, transparent 54%)
+      right center / 0.7em 0.7em no-repeat;
+}
+
+/* Flame flicker — signature motion, use on logo flame / hero accents only. */
+@keyframes hc-flicker {
+  0%,
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px var(--color-glow-flame));
+  }
+  50% {
+    opacity: 0.88;
+    filter: drop-shadow(0 0 12px var(--color-glow-flame));
+  }
+}
+.hc-flicker {
+  animation: hc-flicker 2000ms var(--ease-smooth) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hc-flicker {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Subtle film-grain overlay — add to full-bleed dark sections for the "crafted" feel. */
+.hc-grain {
+  position: relative;
+  isolation: isolate;
+}
+.hc-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.8'/></svg>");
+}

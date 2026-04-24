@@ -1,0 +1,54 @@
+/* Tailwind v4 — core styles, variants, and utility generator. */
+@import 'tailwindcss';
+
+/* Self-hosted fonts via @fontsource — no third-party DNS call (EAA/GDPR safe). */
+@import '@fontsource/cinzel/400.css';
+@import '@fontsource/cinzel/500.css';
+@import '@fontsource/cinzel/700.css';
+@import '@fontsource/cormorant-garamond/400-italic.css';
+@import '@fontsource/cormorant-garamond/500-italic.css';
+@import '@fontsource/inter/300.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+/*
+ * Canonical brand tokens — :root CSS variables (colors, type, spacing, motion)
+ * plus base element styles (h1-h4, p, code, a, hc-* utilities, flame flicker,
+ * film grain, reduced-motion). Source: HearthCode-Vault/06-Brand-Assets/css/.
+ */
+@import '../styles/brand-tokens.css';
+
+/*
+ * Tailwind v4 theme bridge.
+ *
+ * Brand tokens keep their canonical names (--color-bg-primary, --font-display,
+ * etc.) in brand-tokens.css for direct CSS use and design-system consistency.
+ * This block remaps them under Tailwind-friendly semantic names so `bg-primary`,
+ * `text-foreground`, `font-heading` etc. generate as expected utilities.
+ *
+ * Left-hand names must differ from the right-hand tokens to avoid circular
+ * var() self-references at runtime. Example: `--color-border` on both sides
+ * would compile to `--color-border: var(--color-border)` which resolves to
+ * its own fallback (unset). Hence the rename to `--color-ring`.
+ */
+@theme inline {
+  --color-background: var(--color-bg-primary);
+  --color-background-alt: var(--color-bg-secondary);
+  --color-foreground: var(--color-text-cream);
+  --color-foreground-deep: var(--color-text-deep);
+  --color-card: var(--color-surface-raised);
+  --color-muted: var(--color-surface-sunken);
+  --color-primary: var(--color-accent-gold);
+  --color-accent: var(--color-accent-flame);
+  --color-secondary: var(--color-circuit-teal);
+  --color-tertiary: var(--color-leaf-green);
+  --color-ring: var(--color-border);
+  --color-ring-strong: var(--color-border-strong);
+
+  --font-heading: var(--font-display);
+  --font-ornament: var(--font-script);
+  --font-sans: var(--font-body);
+}
