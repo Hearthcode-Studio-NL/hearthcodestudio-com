@@ -24,7 +24,7 @@ export function Contact() {
         </li>
         <li>
           <a
-            href="https://www.linkedin.com/company/hearthcodestudio"
+            href="https://www.linkedin.com/company/hearthcode-studio-807823404"
             target="_blank"
             rel="noopener noreferrer"
           >
