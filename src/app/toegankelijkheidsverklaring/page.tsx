@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function AccessibilityStatementPage() {
   return (
-    <article className="mx-auto max-w-3xl px-6 py-16">
+    <article lang="nl" className="mx-auto max-w-3xl px-6 py-16">
       <h1>Toegankelijkheidsverklaring</h1>
       <p className="hc-caption mt-2">Versie 1 — 24 april 2026.</p>
 
