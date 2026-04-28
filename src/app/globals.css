@@ -1,19 +1,12 @@
 /* Tailwind v4 — core styles, variants, and utility generator. */
 @import 'tailwindcss';
 
-/* Self-hosted fonts via @fontsource — no third-party DNS call (EAA/GDPR safe).
-   Only the weights actually referenced by brand-tokens.css are imported;
-   adding a new weight means adding a line here *and* using it somewhere. */
-@import '@fontsource/cinzel/500.css'; /* h2, h3, .hc-wordmark__primary */
-@import '@fontsource/cinzel/700.css'; /* h1, .hc-display */
-@import '@fontsource/cormorant-garamond/400-italic.css'; /* .font-ornament default */
-@import '@fontsource/cormorant-garamond/500-italic.css'; /* .hc-wordmark__rule */
-@import '@fontsource/inter/400.css'; /* body / p default */
-@import '@fontsource/inter/500.css'; /* emphasis, small-caps labels */
-@import '@fontsource/inter/600.css'; /* h4 */
-/* JetBrains Mono is installed but not imported — the current site has no
-   `<code>` / `<pre>` content, and brand-tokens.css's mono fallback chain
-   already covers system monospace. Add the import back if that changes. */
+/* Fonts are loaded via `next/font/local` (see src/fonts/fonts.ts), which
+   gives us automatic <link rel="preload">, content-aware route splitting,
+   and computed size-adjust on the fallback face. The CSS variables it
+   exposes (--font-cinzel, --font-cormorant, --font-inter) are mapped to
+   brand-tokens.css's --font-display / --font-script / --font-body in
+   src/app/layout.tsx via an html-level inline style. */
 
 /*
  * Canonical brand tokens — :root CSS variables (colors, type, spacing, motion)

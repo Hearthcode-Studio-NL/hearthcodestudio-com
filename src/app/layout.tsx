@@ -1,9 +1,26 @@
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
+import { cinzel, cormorantGaramond, inter } from '@/fonts/fonts';
 
 import type { Metadata, Viewport } from 'next';
+import type { CSSProperties } from 'react';
 
 import './globals.css';
+
+// Override the brand-token font names to point at next/font/local's
+// generated CSS variables. brand-tokens.css stays canonical (declares
+// --font-display: 'Cinzel', ... at :root); this html-level inline style
+// is the implementation hand-off that supplies the actual hashed family
+// next/font produced, plus its size-adjusted fallback face.
+//
+// `var(--font-cinzel)` works because next/font/local was configured with
+// that exact variable name; the .variable className on <html> below is
+// what *declares* the variable in the cascade.
+const fontVariables = {
+  '--font-display': 'var(--font-cinzel)',
+  '--font-script': 'var(--font-cormorant)',
+  '--font-body': 'var(--font-inter)',
+} as CSSProperties;
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://hearthcodestudio.com';
 
@@ -70,7 +87,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html
+      lang="en"
+      className={`${cinzel.variable} ${cormorantGaramond.variable} ${inter.variable} h-full antialiased`}
+      style={fontVariables}
+    >
       <body className="flex min-h-full flex-col">
         <a
           href="#main"
