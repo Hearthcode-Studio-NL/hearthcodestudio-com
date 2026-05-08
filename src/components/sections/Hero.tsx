@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="hc-grain relative flex flex-col items-center justify-center px-6 py-16 text-center md:py-24"
+      className="hc-grain relative flex flex-col items-center px-6 py-12 text-center md:py-16"
     >
       <h1 className="m-0 leading-none">
         <Image
@@ -33,8 +33,8 @@ export function Hero() {
           'bg-[color:var(--color-bg-primary)] text-[color:var(--color-accent-gold)]',
           'font-semibold tracking-wide',
           'ring-1 ring-[color:var(--color-accent-gold)] transition',
-          'hover:bg-[color:var(--color-accent-gold)] hover:text-[color:var(--fg-on-gold)] hover:shadow-[var(--glow-flame)]',
-          'focus-visible:bg-[color:var(--color-accent-gold)] focus-visible:text-[color:var(--fg-on-gold)] focus-visible:shadow-[var(--glow-flame)] focus-visible:outline-none',
+          'hover:shadow-[var(--glow-flame)]',
+          'focus-visible:shadow-[var(--glow-flame)] focus-visible:outline-none',
         ].join(' ')}
       >
         Start a conversation
