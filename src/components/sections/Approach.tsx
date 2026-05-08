@@ -1,6 +1,6 @@
 export function Approach() {
   return (
-    <section id="approach" className="mx-auto max-w-3xl px-6 py-24">
+    <section id="approach" className="mx-auto max-w-3xl px-6 pt-8 pb-16">
       <h2 className="mb-8">The approach</h2>
       <div className="space-y-6 text-lg leading-relaxed">
         <p>

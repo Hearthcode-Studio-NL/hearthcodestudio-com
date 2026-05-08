@@ -1,6 +1,6 @@
 export function Person() {
   return (
-    <section id="person" className="mx-auto max-w-3xl px-6 py-24">
+    <section id="person" className="hc-grain mx-auto max-w-3xl px-6 py-16">
       <h2 className="mb-8">The person behind</h2>
       <div className="space-y-6 text-lg leading-relaxed">
         <p>
