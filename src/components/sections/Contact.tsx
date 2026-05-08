@@ -12,35 +12,6 @@ export function Contact() {
       >
         info@hearthcodestudio.com
       </a>
-      <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm">
-        <li>
-          <a
-            href="https://github.com/Hearthcode-Studio-NL"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.linkedin.com/company/hearthcode-studio-807823404"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.instagram.com/hearthcodestudio"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Instagram
-          </a>
-        </li>
-      </ul>
     </section>
   );
 }
