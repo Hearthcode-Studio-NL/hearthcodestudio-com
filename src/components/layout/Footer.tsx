@@ -7,8 +7,8 @@ export function Footer() {
         <div className="space-y-1">
           <p>© 2026 HearthCode Studio</p>
           <p>
-            <abbr title="Kamer van Koophandel">KvK</abbr>: in behandeling (startdatum 1 mei 2026) ·{' '}
-            <abbr title="Belasting over de Toegevoegde Waarde">BTW</abbr>: volgt na inschrijving
+            <abbr title="Kamer van Koophandel">KvK</abbr>: 42047881 ·{' '}
+            <abbr title="Belasting over de Toegevoegde Waarde">BTW</abbr>: NL005456707B34
           </p>
         </div>
         <ul className="flex gap-6">
