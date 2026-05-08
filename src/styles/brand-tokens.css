@@ -275,7 +275,7 @@ a {
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
-a:hover {
+:is(p, li, blockquote, dd, dt, figcaption, summary) a:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
