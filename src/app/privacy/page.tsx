@@ -19,7 +19,8 @@ export default function PrivacyPage() {
           <h2>Wie we zijn</h2>
           <p>
             HearthCode Studio is een Nederlandse eenmanszaak, gevestigd in Hoenderloo. KvK-nummer:
-            42047881 (startdatum 1 mei 2026). Voor vragen over dit privacybeleid:{' '}
+            42047881, BTW-identificatienummer: NL005456707B34 (startdatum 1 mei 2026). Voor vragen
+            over dit privacybeleid:{' '}
             <a href="mailto:info@hearthcodestudio.com">info@hearthcodestudio.com</a>.
           </p>
         </section>
