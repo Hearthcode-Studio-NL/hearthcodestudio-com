@@ -28,13 +28,14 @@ export function Hero() {
 
       <a
         href="mailto:info@hearthcodestudio.com?subject=Hello%20HearthCode"
+        style={{ textDecoration: 'none' }}
         className={[
           'mt-8 inline-flex items-center rounded-lg px-8 py-4',
-          'bg-[color:var(--color-bg-primary)] text-[color:var(--color-accent-gold)] no-underline',
-          'font-semibold tracking-wide',
+          'bg-[color:var(--color-bg-primary)] text-[color:var(--color-accent-gold)]',
+          'font-semibold tracking-wide [text-decoration:none!important]',
           'ring-1 ring-[color:var(--color-accent-gold)] transition',
-          'hover:no-underline hover:shadow-[var(--glow-flame)]',
-          'focus-visible:no-underline focus-visible:shadow-[var(--glow-flame)] focus-visible:outline-none',
+          'hover:shadow-[var(--glow-flame)] hover:[text-decoration:none!important]',
+          'focus-visible:shadow-[var(--glow-flame)] focus-visible:outline-none focus-visible:[text-decoration:none!important]',
         ].join(' ')}
       >
         Start a conversation
