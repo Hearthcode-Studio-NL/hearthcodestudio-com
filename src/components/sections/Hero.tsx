@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="hc-grain relative flex flex-col items-center px-6 py-12 text-center md:py-16"
+      className="hc-grain relative flex flex-col items-center px-6 pt-0 pb-12 text-center md:pb-16"
     >
       <h1 className="m-0 leading-none">
         <Image
@@ -14,11 +14,11 @@ export function Hero() {
           height={1024}
           priority
           sizes="(min-width: 1024px) 512px, (min-width: 640px) 60vw, 72vw"
-          className="h-auto w-[clamp(16rem,55vw,32rem)]"
+          className="aspect-[5/4] w-[clamp(16rem,55vw,32rem)] object-cover"
         />
       </h1>
 
-      <p className="font-ornament mt-6 text-2xl text-[color:var(--fg-2)] italic md:text-3xl">
+      <p className="font-ornament -mt-2 text-2xl text-[color:var(--fg-2)] italic md:text-3xl">
         Digital craft, deeply rooted.
       </p>
 
@@ -28,13 +28,14 @@ export function Hero() {
 
       <a
         href="mailto:info@hearthcodestudio.com?subject=Hello%20HearthCode"
+        style={{ textDecoration: 'none' }}
         className={[
           'mt-8 inline-flex items-center rounded-lg px-8 py-4',
           'bg-[color:var(--color-bg-primary)] text-[color:var(--color-accent-gold)]',
-          'font-semibold tracking-wide',
+          'font-semibold tracking-wide [text-decoration:none!important]',
           'ring-1 ring-[color:var(--color-accent-gold)] transition',
-          'hover:shadow-[var(--glow-flame)]',
-          'focus-visible:shadow-[var(--glow-flame)] focus-visible:outline-none',
+          'hover:shadow-[var(--glow-flame)] hover:[text-decoration:none!important]',
+          'focus-visible:shadow-[var(--glow-flame)] focus-visible:outline-none focus-visible:[text-decoration:none!important]',
         ].join(' ')}
       >
         Start a conversation
