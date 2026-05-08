@@ -17,7 +17,7 @@ export function Header() {
           href="/"
           aria-label="HearthCode Studio — home"
           className="hc-wordmark transition hover:[filter:drop-shadow(0_0_18px_rgba(212,165,116,0.95))_drop-shadow(0_0_36px_rgba(212,165,116,0.5))] focus-visible:[filter:drop-shadow(0_0_18px_rgba(212,165,116,0.95))_drop-shadow(0_0_36px_rgba(212,165,116,0.5))] focus-visible:outline-none"
-          style={{ ['--hc-wordmark-size' as string]: '1.5rem' }}
+          style={{ ['--hc-wordmark-size' as string]: '1.75rem' }}
         >
           <span className="hc-wordmark__primary">HearthCode</span>
           <span className="hc-wordmark__rule">
@@ -25,7 +25,7 @@ export function Header() {
           </span>
         </Link>
         <nav aria-label="Primary" className="hidden md:block">
-          <ul className="flex gap-8 text-sm">
+          <ul className="flex gap-10 text-base">
             <li>
               <a href="#approach" className={navLinkClass} style={navLinkStyle}>
                 Approach
