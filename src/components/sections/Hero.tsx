@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="hc-grain relative flex min-h-[70vh] flex-col items-center justify-center px-6 py-20 text-center"
+      className="hc-grain relative flex flex-col items-center px-6 py-12 text-center md:py-16"
     >
       <h1 className="m-0 leading-none">
         <Image
@@ -28,7 +28,14 @@ export function Hero() {
 
       <a
         href="mailto:info@hearthcodestudio.com?subject=Hello%20HearthCode"
-        className="bg-primary mt-10 inline-flex items-center rounded-lg px-8 py-4 font-semibold tracking-wide text-[color:var(--fg-on-gold)] shadow-[0_0_16px_rgba(255,140,66,0.25)] ring-1 ring-[rgba(58,40,23,0.2)] transition ring-inset hover:shadow-[0_0_32px_rgba(255,140,66,0.6),0_0_56px_rgba(255,140,66,0.32)] focus-visible:shadow-[0_0_32px_rgba(255,140,66,0.6),0_0_56px_rgba(255,140,66,0.32)]"
+        className={[
+          'mt-8 inline-flex items-center rounded-lg px-8 py-4',
+          'bg-[color:var(--color-bg-primary)] text-[color:var(--color-accent-gold)]',
+          'font-semibold tracking-wide',
+          'ring-1 ring-[color:var(--color-accent-gold)] transition',
+          'hover:shadow-[var(--glow-flame)]',
+          'focus-visible:shadow-[var(--glow-flame)] focus-visible:outline-none',
+        ].join(' ')}
       >
         Start a conversation
       </a>
