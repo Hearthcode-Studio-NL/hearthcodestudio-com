@@ -8,13 +8,13 @@ export function Hero() {
     >
       <h1 className="m-0 leading-none">
         <Image
-          src="/brand/logo.png"
+          src="/brand/logo-full-default.svg"
           alt="HearthCode Studio"
-          width={1024}
-          height={1024}
+          width={1097}
+          height={1097}
           priority
-          sizes="(min-width: 1024px) 512px, (min-width: 640px) 60vw, 72vw"
-          className="aspect-[5/4] w-[clamp(16rem,55vw,32rem)] object-cover"
+          unoptimized
+          className="h-auto w-[clamp(16rem,55vw,32rem)]"
         />
       </h1>
 
