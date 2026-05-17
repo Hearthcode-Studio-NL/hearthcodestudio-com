@@ -1,18 +1,20 @@
-// Lighthouse CI — runs against the production build served by `next start`.
+// Lighthouse CI — runs against the live production site.
 // Reference: HearthCode-Vault/04-Standards/Testing-Policy.md § Performance.
+//
+// Why production URL, not localhost:
+// `src/middleware.ts` sends `X-Robots-Tag: noindex` on any host that isn't
+// hearthcodestudio.com (protects preview deploys from indexing). Running
+// against localhost would always fail the SEO `is-crawlable` audit. The
+// production URL sees the real response with no noindex header.
 
 module.exports = {
   ci: {
     collect: {
       url: [
-        'http://localhost:3000/',
-        'http://localhost:3000/privacy',
-        'http://localhost:3000/toegankelijkheidsverklaring',
+        'https://hearthcodestudio.com/',
+        'https://hearthcodestudio.com/privacy',
+        'https://hearthcodestudio.com/toegankelijkheidsverklaring',
       ],
-      // `next start` requires a prior `next build` — the CI step runs build
-      // before `lhci autorun`. Locally, run `npm run build && npx @lhci/cli autorun`.
-      startServerCommand: 'npm run start',
-      startServerReadyPattern: 'Ready in',
       numberOfRuns: 3,
     },
 
@@ -20,15 +22,7 @@ module.exports = {
       assertions: {
         'categories:performance': ['error', { minScore: 0.9 }],
         'categories:accessibility': ['error', { minScore: 1.0 }],
-        // SEO threshold lowered to 0.6 while pre-DNS-cutover. `src/middleware.ts`
-        // emits `X-Robots-Tag: noindex, nofollow` on every host that is not
-        // `hearthcodestudio.com`, including `localhost` (which is what CI runs
-        // against). That's the right product behaviour — it prevents the
-        // *.vercel.app preview from competing with the canonical domain — but
-        // it makes the Lighthouse `is-crawlable` audit fail, dropping the SEO
-        // category score to ~0.63. See `docs/adr/0003-testing-waiver-lighthouse-seo.md`.
-        // Ratchet back to 1.0 once DNS cuts over to hearthcodestudio.com.
-        'categories:seo': ['error', { minScore: 0.6 }],
+        'categories:seo': ['error', { minScore: 1.0 }],
         'categories:best-practices': ['warn', { minScore: 0.9 }],
 
         // LCP / CLS / INP per-metric thresholds are kept as warnings, not

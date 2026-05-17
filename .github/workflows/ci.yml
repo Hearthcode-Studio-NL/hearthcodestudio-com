@@ -102,7 +102,6 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - run: npm run build
       - run: npx @lhci/cli autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
