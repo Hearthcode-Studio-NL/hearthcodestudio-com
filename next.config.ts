@@ -1,7 +1,93 @@
 import type { NextConfig } from 'next';
 
+const securityHeaders = [
+  // --- Content Security Policy ---
+  // Controls which sources the browser is allowed to load resources from.
+  // This is the single most important security header — it's the main
+  // defence against cross-site scripting (XSS).
+  //
+  // 'self'           = only from our own domain
+  // 'unsafe-inline'  = needed because Next.js injects inline <script> tags
+  //                    for hydration and inline <style> for Tailwind/CSS.
+  //                    Trade-off: weakens XSS protection for scripts, but
+  //                    this site has no user input so the practical risk is
+  //                    near zero. Nonce-based CSP would be stronger but
+  //                    requires middleware changes — revisit if the site
+  //                    grows forms or interactive features.
+  // frame-ancestors  = prevents other sites from embedding us in an iframe
+  //                    (clickjacking protection, replaces X-Frame-Options)
+  // object-src       = blocks Flash/Java/ActiveX plugins (legacy attack vector)
+  // base-uri         = prevents <base> tag hijacking
+  // form-action      = prevents forms from submitting to external domains
+  {
+    key: 'Content-Security-Policy',
+    value: [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline'",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data:",
+      "font-src 'self'",
+      "connect-src 'self'",
+      "frame-ancestors 'none'",
+      "object-src 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+    ].join('; '),
+  },
+
+  // --- X-Frame-Options ---
+  // Older browsers don't support CSP frame-ancestors. This is the legacy
+  // equivalent: tells the browser "never render this page inside a frame."
+  // Belt-and-suspenders with the CSP rule above.
+  {
+    key: 'X-Frame-Options',
+    value: 'DENY',
+  },
+
+  // --- X-Content-Type-Options ---
+  // Prevents the browser from guessing ("MIME-sniffing") what type a file
+  // is. Without this, a browser might treat a text file as JavaScript if
+  // the content looks script-like. The "nosniff" value says: trust the
+  // Content-Type header, don't guess.
+  {
+    key: 'X-Content-Type-Options',
+    value: 'nosniff',
+  },
+
+  // --- Referrer-Policy ---
+  // Controls how much URL information is sent to other sites when a visitor
+  // clicks an external link. "strict-origin-when-cross-origin" means:
+  // - Same-site navigation: send the full URL (fine, it's our own site)
+  // - Cross-site navigation: send only the origin (https://hearthcodestudio.com),
+  //   not the full path — so external sites don't see which page the visitor
+  //   was on.
+  // - Downgrade (HTTPS → HTTP): send nothing.
+  {
+    key: 'Referrer-Policy',
+    value: 'strict-origin-when-cross-origin',
+  },
+
+  // --- Permissions-Policy ---
+  // Explicitly disables browser features the site doesn't use. Even though
+  // no code on this site requests camera/mic/location access, setting this
+  // header means that if malicious code were somehow injected, the browser
+  // would block those API calls. Defence in depth.
+  {
+    key: 'Permissions-Policy',
+    value: ['camera=()', 'microphone=()', 'geolocation=()', 'interest-cohort=()'].join(', '),
+  },
+];
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  async headers() {
+    return [
+      {
+        // Apply security headers to all routes
+        source: '/(.*)',
+        headers: securityHeaders,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
