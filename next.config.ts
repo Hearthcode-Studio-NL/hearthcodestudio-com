@@ -35,6 +35,21 @@ const securityHeaders = [
     ].join('; '),
   },
 
+  // --- Strict-Transport-Security (HSTS) ---
+  // Tells the browser: "For the next 2 years, always use HTTPS for this
+  // domain — don't even try HTTP." Vercel already redirects HTTP → HTTPS,
+  // but without this header the very first request could still travel over
+  // plain HTTP (e.g. on public Wi-Fi) before the redirect kicks in. After
+  // one visit with HSTS set, the browser remembers and goes straight to
+  // HTTPS — closing that man-in-the-middle window.
+  //
+  // max-age=63072000 = 2 years (industry standard)
+  // includeSubDomains = covers www. and any future subdomains too
+  {
+    key: 'Strict-Transport-Security',
+    value: 'max-age=63072000; includeSubDomains',
+  },
+
   // --- X-Frame-Options ---
   // Older browsers don't support CSP frame-ancestors. This is the legacy
   // equivalent: tells the browser "never render this page inside a frame."
