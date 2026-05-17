@@ -6,7 +6,7 @@
 [tp]: ../../HearthCode-Vault/04-Standards/Testing-Policy.md
 [opensource]: ../../HearthCode-Vault/04-Standards/Open-Sourcing-a-Repo.md
 
-- **Status:** Accepted
+- **Status:** Closed
 - **Date:** 2026-04-28
 - **Owner:** Wijnand
 - **Expires:** 2026-10-28 (6 months — forces revisit at the natural "decide repo visibility" moment around DNS cutover and post-launch retro)
@@ -68,11 +68,12 @@ The repository is **9 source files of brochure-scale Next.js 16 + TypeScript wit
 
 ## Review history
 
-| Date       | Reviewer | Notes                                                                                                |
-| ---------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| 2026-04-28 | Wijnand  | Waiver accepted. Issued at v0.1.0 launch (PR #6) to unblock merge for the KvK + BTW-id legal update. |
+| Date       | Reviewer | Notes                                                                                                                                                                                                   |
+| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-04-28 | Wijnand  | Waiver accepted. Issued at v0.1.0 launch (PR #6) to unblock merge for the KvK + BTW-id legal update.                                                                                                    |
+| 2026-05-17 | Wijnand  | **Waiver closed.** Repo made public — GHAS Code Scanning is free on public repos, SARIF upload now succeeds. `continue-on-error: true` removed from `ci.yml`; `codeql` added to required status checks. |
 
-Add a row each time the waiver is renewed, narrowed, or closed.
+~~Add a row each time the waiver is renewed, narrowed, or closed.~~
 
 ## References
 

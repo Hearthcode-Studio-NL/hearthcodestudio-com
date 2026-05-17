@@ -4,8 +4,8 @@
 # Jobs:
 #   fast        — lint + typecheck + unit. Blocks on every push.
 #   audit       — npm audit (high). Blocks.
-#   codeql      — static analysis. NON-BLOCKING (upload requires GHAS on
-#                 private repos; analysis still runs and logs findings).
+#   codeql      — static analysis. Blocks. (Repo made public 2026-05-17;
+#                 SARIF upload to Code Scanning now works.)
 #   full        — Playwright (smoke + a11y) against a production build.
 #                 Blocks on PR and merge-to-main.
 #   lighthouse  — PR-only performance + a11y + SEO check. Blocks on PR.
@@ -51,7 +51,6 @@ jobs:
   codeql:
     name: CodeQL static analysis
     runs-on: ubuntu-latest
-    continue-on-error: true
     permissions:
       security-events: write
       actions: read
@@ -113,6 +112,6 @@ jobs:
 #   - fast
 #   - audit
 #   - full
+#   - codeql       (repo is public since 2026-05-17; SARIF upload works)
 #   - lighthouse   (only enforceable on PR; main pushes skip it)
-#   (do NOT require codeql — intentionally non-blocking)
 # ------------------------------------------------------------------
