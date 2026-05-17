@@ -6,7 +6,7 @@
 [gw]: ../../HearthCode-Vault/04-Standards/Git-Workflow.md
 [mw]: ../../src/middleware.ts
 
-- **Status:** Accepted
+- **Status:** Closed
 - **Date:** 2026-04-28
 - **Owner:** Wijnand
 - **Expires:** 2026-07-28 (3 months — short, because the Layer-3 DNS cutover that closes this waiver is days-to-weeks away, not quarters)
@@ -67,9 +67,10 @@ The alternatives considered and rejected:
 
 ## Review history
 
-| Date       | Reviewer | Notes                                                                                                                                                        |
-| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 2026-04-28 | Wijnand  | Waiver accepted. Issued at v0.1.0 launch (PR #6) to unblock the merge for the KvK + BTW-id legal update while DNS still points at the \*.vercel.app preview. |
+| Date       | Reviewer | Notes                                                                                                                                                                                                                                                                                                                    |
+| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 2026-04-28 | Wijnand  | Waiver accepted. Issued at v0.1.0 launch (PR #6) to unblock the merge for the KvK + BTW-id legal update while DNS still points at the \*.vercel.app preview.                                                                                                                                                             |
+| 2026-05-17 | Wijnand  | **Waiver closed.** DNS cut over to `hearthcodestudio.com` (A record → 216.198.79.1). Lighthouse CI now runs against the production URL instead of localhost, so the noindex middleware no longer interferes. SEO threshold raised back to 1.0. `npm run build` removed from Lighthouse CI step (no local server needed). |
 
 ## References
 
