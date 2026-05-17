@@ -10,8 +10,8 @@ export default function PrivacyPage() {
     <article lang="nl" className="mx-auto max-w-3xl px-6 py-16">
       <h1>Privacyverklaring</h1>
       <p className="hc-caption mt-2">
-        Laatst bijgewerkt: 28 april 2026 — deze v1 is een werkdocument en wordt vóór publieke
-        lancering aangevuld.
+        Laatst bijgewerkt: 18 mei 2026. Deze privacyverklaring wordt bijgewerkt wanneer de website
+        of gegevensverwerking verandert.
       </p>
 
       <div className="mt-10 space-y-10">
