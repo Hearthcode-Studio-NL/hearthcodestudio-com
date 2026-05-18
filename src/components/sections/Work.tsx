@@ -41,16 +41,22 @@ export function Work() {
       <h2 className="mb-4">{t('heading')}</h2>
       <p className="mb-10 max-w-2xl text-lg leading-relaxed">{t('intro')}</p>
 
+      {/* Carousel container — hides scrollbar, enables snap scrolling.
+          On mobile: cards are ~80vw wide so you see a peek of the next card,
+          hinting that you can swipe. On md+: cards sit in a row. */}
       <ul
         aria-label="Projects"
-        className="-mx-6 flex snap-x snap-mandatory scroll-px-6 gap-6 overflow-x-auto px-6 pb-6"
+        className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {projectKeys.map((key) => {
           const meta = projectMeta[key];
           const image = meta.image;
 
           return (
-            <li key={key} className="w-64 flex-shrink-0 snap-start md:w-72">
+            <li
+              key={key}
+              className="w-[80vw] flex-shrink-0 snap-start sm:w-[60vw] md:w-[calc((100%-3rem)/3)]"
+            >
               <Link
                 href={`/projects/${key}`}
                 aria-label={t(`projects.${key}.name`) + ' — ' + t(`projects.${key}.hrefLabel`)}
