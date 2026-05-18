@@ -10,10 +10,12 @@ import { NextResponse, type NextRequest } from 'next/server';
  * The real domain (`hearthcodestudio.com`, with or without `www.` prefix)
  * serves indexable responses unchanged. When DNS cuts over, this middleware
  * automatically stops tagging — no code change needed.
+ *
+ * Renamed from middleware.ts to proxy.ts for Next.js 16 convention.
  */
 const CANONICAL_HOSTS = new Set(['hearthcodestudio.com', 'www.hearthcodestudio.com']);
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const host = (request.headers.get('host') ?? '').toLowerCase();
   const response = NextResponse.next();
 
