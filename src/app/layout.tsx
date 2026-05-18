@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: '%s — HearthCode Studio',
   },
   description:
-    'A one-person digital studio in Hoenderloo, Netherlands — delivering apps, websites, and IT advisory to clients who want digital work done thoughtfully. Twenty years of business-analyst experience applied at the craft-studio scale.',
+    'A one-person digital studio in the Netherlands — delivering apps, websites, and IT advisory to clients who want digital work done thoughtfully. Twenty years of business-analyst experience applied at the craft-studio scale.',
   applicationName: 'HearthCode Studio',
   keywords: [
     'HearthCode Studio',

@@ -23,7 +23,7 @@ export function Person() {
           clearly understood what it needed to be.
         </p>
         <p className="text-[color:var(--fg-2)]">
-          <em>Based in Hoenderloo. Working with clients worldwide.</em>
+          <em>Based in the Netherlands. Working with clients worldwide.</em>
         </p>
       </div>
     </section>

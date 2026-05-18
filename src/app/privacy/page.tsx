@@ -10,18 +10,17 @@ export default function PrivacyPage() {
     <article lang="nl" className="mx-auto max-w-3xl px-6 py-16">
       <h1>Privacyverklaring</h1>
       <p className="hc-caption mt-2">
-        Laatst bijgewerkt: 28 april 2026 — deze v1 is een werkdocument en wordt vóór publieke
-        lancering aangevuld.
+        Laatst bijgewerkt: 18 mei 2026. Deze privacyverklaring wordt bijgewerkt wanneer de website
+        of gegevensverwerking verandert.
       </p>
 
       <div className="mt-10 space-y-10">
         <section>
           <h2>Wie we zijn</h2>
           <p>
-            HearthCode Studio is een Nederlandse eenmanszaak, gevestigd in Hoenderloo. KvK-nummer:
-            42047881, BTW-identificatienummer: NL005456707B34 (startdatum 1 mei 2026). Voor vragen
-            over dit privacybeleid:{' '}
-            <a href="mailto:info@hearthcodestudio.com">info@hearthcodestudio.com</a>.
+            HearthCode Studio is een Nederlandse eenmanszaak. KvK-nummer: 42047881,
+            BTW-identificatienummer: NL005456707B34 (startdatum 1 mei 2026). Voor vragen over dit
+            privacybeleid: <a href="mailto:info@hearthcodestudio.com">info@hearthcodestudio.com</a>.
           </p>
         </section>
 

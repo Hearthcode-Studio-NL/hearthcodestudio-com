@@ -67,7 +67,7 @@ src/
     layout/{Header,Footer}.tsx
     sections/{Hero,Approach,Person,Work,Contact}.tsx
   styles/
-    brand-tokens.css              Copy of 06-Brand-Assets/css/colors_and_type.css
+    brand-tokens.css              Canonical brand design tokens (colours, typography, effects)
                                   (Google Fonts @import stripped — fonts are self-hosted)
 docs/
   adr/0001-brand-source.md        Path A brand wiring decision record
@@ -78,16 +78,9 @@ e2e/
 
 ## Conventions
 
-Follows HearthCode Studio standards documented in the vault:
-
-- Code style: `HearthCode-Vault/04-Standards/Code-Style.md`
-- Git workflow: `HearthCode-Vault/04-Standards/Git-Workflow.md`
-- Testing policy: `HearthCode-Vault/04-Standards/Testing-Policy.md`
-- Voice & tone (copy): `HearthCode-Vault/02-Design-System/Voice-and-Tone.md`
-- Architecture: `HearthCode-Vault/03-Architecture/Websites/Website-Architecture.md`
+This project follows HearthCode Studio's internal coding, testing, accessibility, and deployment standards. Conventional Commits, PR-per-concern, all CI gates green before merge.
 
 ## Related links
 
 - Production: <https://hearthcodestudio.com>
-- Vault (internal): `~/Projects/HearthCode Studio/HearthCode-Vault/`
 - Issue tracker: GitHub Issues on this repo
