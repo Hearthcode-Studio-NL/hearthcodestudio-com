@@ -39,6 +39,23 @@ test('NL: toegankelijkheidsverklaring page renders Dutch content', async ({ page
   ).toBeVisible();
 });
 
+test('NL: project detail page renders Dutch content', async ({ page }) => {
+  await page.goto('/nl/projects/pum');
+  await expect(
+    page.getByRole('heading', { level: 1, name: /property-utility-mapper/i }),
+  ).toBeVisible();
+  // Status badge confirms the metadata bar rendered
+  await expect(page.getByText('In actieve ontwikkeling').first()).toBeVisible();
+  // Back link navigates to home
+  await expect(page.getByRole('link', { name: /Terug naar home/i })).toBeVisible();
+});
+
+test('NL: project carousel links to detail pages', async ({ page }) => {
+  await page.goto('/nl');
+  const projectLink = page.getByRole('link', { name: /property-utility-mapper/i }).first();
+  await expect(projectLink).toHaveAttribute('href', /\/nl\/projects\/pum/);
+});
+
 // --- English ---
 
 test('EN: home page loads with English tagline and mailto CTA', async ({ page }) => {
@@ -78,6 +95,22 @@ test('EN: accessibility statement renders English content', async ({ page }) => 
   ).toBeVisible();
 });
 
+test('EN: project detail page renders English content', async ({ page }) => {
+  await page.goto('/en/projects/pum');
+  await expect(
+    page.getByRole('heading', { level: 1, name: /property-utility-mapper/i }),
+  ).toBeVisible();
+  // Status badge confirms the metadata bar rendered
+  await expect(page.getByText('In active development').first()).toBeVisible();
+  await expect(page.getByRole('link', { name: /Back to home/i })).toBeVisible();
+});
+
+test('EN: project carousel links to detail pages', async ({ page }) => {
+  await page.goto('/en');
+  const projectLink = page.getByRole('link', { name: /property-utility-mapper/i }).first();
+  await expect(projectLink).toHaveAttribute('href', /\/en\/projects\/pum/);
+});
+
 // --- Locale redirect ---
 
 test('root / redirects to a locale-prefixed path', async ({ page }) => {
@@ -89,17 +122,39 @@ test('root / redirects to a locale-prefixed path', async ({ page }) => {
   expect(url).toMatch(/\/(nl|en)/);
 });
 
-// --- Language switcher (desktop only — hidden on mobile) ---
+// --- Language switcher ---
 
 test('language switcher toggles between NL and EN', async ({ page, isMobile }) => {
-  test.skip(!!isMobile, 'Language switcher is desktop-only (TODO: add mobile switcher)');
-
   await page.goto('/nl');
   await expect(page.getByText(/Digitaal vakwerk/)).toBeVisible();
 
-  // Click the EN link in the language nav
+  // On mobile, open the hamburger menu first to reveal the language switcher
+  if (isMobile) {
+    await page.getByRole('button', { name: /menu/i }).click();
+  }
+
   const langNav = page.getByRole('navigation', { name: /language/i });
   await langNav.getByRole('link', { name: /Switch to English/i }).click();
   await page.waitForURL(/\/en/);
   await expect(page.getByText(/Digital craft, deeply rooted\./)).toBeVisible();
+});
+
+test('mobile menu opens and shows navigation links', async ({ page, isMobile }) => {
+  test.skip(!isMobile, 'Mobile menu test — skipped on desktop');
+
+  await page.goto('/nl');
+
+  // Menu should be closed initially (inert attribute present)
+  const menu = page.locator('#mobile-menu');
+  await expect(menu).toHaveAttribute('inert', '');
+
+  // Open the menu
+  const menuButton = page.getByRole('button', { name: /menu/i });
+  await menuButton.click();
+
+  // After opening, inert should be removed and links visible
+  await expect(menu).not.toHaveAttribute('inert');
+  await expect(menu.getByRole('link', { name: /Aanpak/i })).toBeVisible();
+  await expect(menu.getByRole('link', { name: /Werk/i })).toBeVisible();
+  await expect(menu.getByRole('link', { name: /Contact/i })).toBeVisible();
 });

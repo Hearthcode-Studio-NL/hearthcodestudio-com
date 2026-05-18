@@ -8,9 +8,15 @@ import { expect, test } from '@playwright/test';
 // Test both locales — each page must pass WCAG 2.2 AA in both languages
 const ROUTES = [
   '/nl',
+  '/nl/projects/pum',
+  '/nl/projects/dap2d',
+  '/nl/projects/hearthcode',
   '/nl/privacy',
   '/nl/toegankelijkheidsverklaring',
   '/en',
+  '/en/projects/pum',
+  '/en/projects/dap2d',
+  '/en/projects/hearthcode',
   '/en/privacy',
   '/en/toegankelijkheidsverklaring',
 ];

@@ -12,6 +12,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const pages = [
     { path: '/', changeFrequency: 'monthly' as const, priority: 1.0 },
+    { path: '/projects/pum', changeFrequency: 'monthly' as const, priority: 0.7 },
+    { path: '/projects/dap2d', changeFrequency: 'monthly' as const, priority: 0.7 },
+    { path: '/projects/hearthcode', changeFrequency: 'monthly' as const, priority: 0.7 },
     { path: '/privacy', changeFrequency: 'yearly' as const, priority: 0.3 },
     {
       path: '/toegankelijkheidsverklaring',

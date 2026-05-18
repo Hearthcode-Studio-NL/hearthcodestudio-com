@@ -12,9 +12,11 @@ module.exports = {
     collect: {
       url: [
         'https://hearthcodestudio.com/nl',
+        'https://hearthcodestudio.com/nl/projects/pum',
         'https://hearthcodestudio.com/nl/privacy',
         'https://hearthcodestudio.com/nl/toegankelijkheidsverklaring',
         'https://hearthcodestudio.com/en',
+        'https://hearthcodestudio.com/en/projects/pum',
       ],
       numberOfRuns: 3,
     },

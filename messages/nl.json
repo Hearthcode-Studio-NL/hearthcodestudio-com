@@ -15,7 +15,9 @@
     "homeLabel": "HearthCode Studio — home",
     "approach": "Aanpak",
     "work": "Werk",
-    "contact": "Contact"
+    "contact": "Contact",
+    "menuOpen": "Menu openen",
+    "menuClose": "Menu sluiten"
   },
   "Hero": {
     "tagline": "Digitaal vakwerk, diep geworteld.",
@@ -44,21 +46,21 @@
         "description": "Een tool voor het mappen van nutsbedrijven aan vastgoedregistraties. Open-source, in actieve ontwikkeling als schetsboek voor hoe de studio wil werken.",
         "status": "In actieve ontwikkeling",
         "imageAlt": "property-utility-mapper icoon",
-        "hrefLabel": "Bekijk op GitHub"
+        "hrefLabel": "Lees meer"
       },
       "dap2d": {
         "name": "DAP2D — rebuild",
         "description": "Herbouw van een holistische dierenpraktijk. Foto-audit, BRG-2 kleurenpalet, content herschrijven. In uitvoering — meer details volgen.",
         "status": "In uitvoering",
         "imageAlt": "DAP2D-merk",
-        "hrefLabel": "Bezoek site"
+        "hrefLabel": "Lees meer"
       },
       "hearthcode": {
         "name": "HearthCode Studio",
         "description": "Deze site die je nu leest. Apps, websites en IT-advies. Broncode op GitHub — Next.js 16, Tailwind v4, Vercel.",
         "status": "Live",
         "imageAlt": "HearthCode Studio-logo",
-        "hrefLabel": "Bekijk op GitHub"
+        "hrefLabel": "Lees meer"
       }
     }
   },
@@ -75,5 +77,57 @@
   "LanguageSwitcher": {
     "switchTo": "English",
     "label": "Taal wisselen"
+  },
+  "ProjectDetail": {
+    "backToHome": "Terug naar home",
+    "visitSite": "Bezoek site",
+    "viewOnGitHub": "Bekijk op GitHub",
+    "techStack": "Technologie",
+    "status": "Status",
+    "scope": "Scope",
+    "projects": {
+      "pum": {
+        "title": "property-utility-mapper",
+        "metaTitle": "property-utility-mapper",
+        "metaDescription": "Een open-source tool voor het mappen van nutsbedrijven aan vastgoedregistraties — gebouwd als schetsboek voor hoe HearthCode Studio wil werken.",
+        "intro": "Een open-source tool die vastgoedregistraties koppelt aan nutsbedrijven. Gebouwd in Python, ontworpen als een schetsboek — een plek om werkwijzen, patronen en beslissingen te verkennen voordat ze naar klantwerk verhuizen.",
+        "paragraphs": [
+          "Het oorspronkelijke probleem is eenvoudig: bij het kopen of beheren van vastgoed moet je weten welke nutsbedrijven gekoppeld zijn — energie, water, internet. Die informatie is verspreid over meerdere bronnen, in wisselende formaten, en zelden klaar voor gebruik.",
+          "PUM brengt die gegevens samen in een enkele mapping. Maar het eigenlijke doel is breder: het dient als werkplaats voor de studio. Hier worden conventies getest, tooling uitgeprobeerd en architectuurkeuzes gemaakt die later in klantprojecten terugkomen.",
+          "Het project is open-source en in actieve ontwikkeling. De broncode staat op GitHub — bijdragen en feedback zijn welkom."
+        ],
+        "stack": "Python · Open-source · CLI",
+        "statusText": "In actieve ontwikkeling",
+        "scopeText": "Intern tooling-project, open-source"
+      },
+      "dap2d": {
+        "title": "DAP2D — rebuild",
+        "metaTitle": "DAP2D — website rebuild",
+        "metaDescription": "Herbouw van de website voor een holistische dierenpraktijk — foto-audit, kleurenpalet, content herschrijven en technische modernisering.",
+        "intro": "Een volledige herbouw van de website voor DAP2D, een holistische dierenpraktijk. Het traject omvat een foto-audit, een nieuw kleurenpalet (BRG-2), het herschrijven van alle content en een technische modernisering.",
+        "paragraphs": [
+          "De bestaande site deed zijn werk, maar was toe aan een inhaalslag: verouderde foto's, inconsistente kleuren, teksten die niet meer klopten met de huidige praktijk. De herbouw begint bij de basis — begrijpen wat de praktijk uitstraalt en dat vertalen naar een digitale presentatie die klopt.",
+          "De foto-audit brengt in kaart welke beelden bruikbaar zijn, welke vervangen moeten worden en waar nieuwe fotografie nodig is. Het BRG-2 kleurenpalet geeft de site een visuele identiteit die past bij de warme, professionele sfeer van de praktijk.",
+          "Dit is een lopend klantproject. Meer details volgen naarmate het vordert."
+        ],
+        "stack": "Website rebuild · Content · Branding",
+        "statusText": "In uitvoering",
+        "scopeText": "Klantproject — holistische dierenpraktijk"
+      },
+      "hearthcode": {
+        "title": "HearthCode Studio",
+        "metaTitle": "HearthCode Studio — deze site",
+        "metaDescription": "De website van HearthCode Studio zelf — gebouwd met Next.js 16, Tailwind v4 en gehost op Vercel. Open-source en tweetalig.",
+        "intro": "De site die je nu leest. Apps, websites en IT-advies — gebouwd met Next.js 16, Tailwind v4, en gehost op Vercel. Volledig tweetalig (Nederlands en Engels), toegankelijk volgens WCAG 2.2 AA, en open-source.",
+        "paragraphs": [
+          "Deze site is zowel het visitekaartje van de studio als een leerplek. Elke technische beslissing — van het kleurensysteem tot de toegankelijkheidstests — is gedocumenteerd en doordacht genomen. Het is een eenpersoonsproject, gebouwd op dezelfde manier als klantwerk: met zorg.",
+          "De broncode staat op GitHub. De CI-pipeline bevat TypeScript-typecheck, ESLint, Prettier, Playwright E2E-tests, axe-core toegankelijkheidschecks en Lighthouse-audits. Elke push naar main doorloopt al die gates voordat Vercel de productie-deploy uitvoert.",
+          "Tweetaligheid is geimplementeerd met next-intl: subpaden (/nl, /en), automatische taaldetectie, en hreflang-alternates in de sitemap. De taalschakelaar is toegankelijk met toetsenbord en schermlezer."
+        ],
+        "stack": "Next.js 16 · Tailwind v4 · TypeScript · Vercel",
+        "statusText": "Live",
+        "scopeText": "Studiowebsite — open-source"
+      }
+    }
   }
 }

@@ -1,29 +1,29 @@
+'use client';
+
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
+import { Link } from '@/i18n/navigation';
+
 // Project metadata that doesn't change between languages
-// (images, URLs). The translatable text (name, description,
+// (images). The translatable text (name, description,
 // status, labels) comes from the JSON translation files.
+// Cards now link to internal detail pages (/projects/[slug]).
 const projectKeys = ['pum', 'dap2d', 'hearthcode'] as const;
 
 type ProjectKey = (typeof projectKeys)[number];
 
-const projectMeta: Record<ProjectKey, { image: string; href: string }> = {
+const projectMeta: Record<ProjectKey, { image: string }> = {
   pum: {
     image: '/brand/projects/pum-icon.png',
-    href: 'https://github.com/Hearthcode-Studio-NL/property-utility-mapper',
   },
   dap2d: {
     image: '/brand/projects/dap2d-mark.png',
-    href: 'https://dap2d.nl',
   },
   hearthcode: {
     image: '/brand/logo-full-default.svg',
-    href: 'https://github.com/Hearthcode-Studio-NL/hearthcodestudio-com',
   },
 };
-
-const cardLinkStyle = { textDecoration: 'none' };
 
 const cardLinkClass = [
   'group flex h-full flex-col overflow-hidden rounded-lg',
@@ -51,13 +51,11 @@ export function Work() {
 
           return (
             <li key={key} className="w-64 flex-shrink-0 snap-start md:w-72">
-              <a
-                href={meta.href}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={`/projects/${key}`}
                 aria-label={t(`projects.${key}.name`) + ' — ' + t(`projects.${key}.hrefLabel`)}
                 className={cardLinkClass}
-                style={cardLinkStyle}
+                style={{ textDecoration: 'none' }}
               >
                 <div className="flex aspect-[5/4] items-center justify-center bg-[color:var(--color-bg-primary)] p-4">
                   <Image
@@ -87,7 +85,7 @@ export function Work() {
                     <span>{'→'}</span>
                   </span>
                 </div>
-              </a>
+              </Link>
             </li>
           );
         })}

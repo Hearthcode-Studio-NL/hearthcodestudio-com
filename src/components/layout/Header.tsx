@@ -1,6 +1,7 @@
 'use client';
 
 import { useLocale, useTranslations } from 'next-intl';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Link, usePathname } from '@/i18n/navigation';
 
@@ -13,10 +14,17 @@ const navLinkClass = [
   'focus-visible:no-underline focus-visible:[text-shadow:0_0_16px_rgba(212,165,116,1),0_0_32px_rgba(212,165,116,0.6),0_0_48px_rgba(212,165,116,0.3)] focus-visible:outline-none',
 ].join(' ');
 
+// Mobile menu link — larger tap targets, full-width
+const mobileLinkClass = [
+  'block py-3 text-lg text-[color:var(--color-accent-gold)] no-underline',
+  'transition',
+  'hover:no-underline hover:[text-shadow:0_0_16px_rgba(212,165,116,1),0_0_32px_rgba(212,165,116,0.6),0_0_48px_rgba(212,165,116,0.3)]',
+  'focus-visible:no-underline focus-visible:[text-shadow:0_0_16px_rgba(212,165,116,1),0_0_32px_rgba(212,165,116,0.6),0_0_48px_rgba(212,165,116,0.3)] focus-visible:outline-none',
+].join(' ');
+
 // Language switcher — shows both options (NL / EN) with the active
 // one visually distinct. The inactive one is a link to the same page
-// in the other language. This is the most accessible pattern:
-// screen readers announce "NL, current" vs "EN, link".
+// in the other language. Screen readers announce "NL, current" vs "EN, link".
 function LanguageSwitcher() {
   const locale = useLocale();
   const pathname = usePathname();
@@ -69,8 +77,76 @@ function LanguageSwitcher() {
   );
 }
 
+// Hamburger icon (three lines) — simple SVG, no external dependency
+function HamburgerIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <line x1="3" y1="12" x2="21" y2="12" />
+      <line x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+  );
+}
+
+// Close icon (X) — simple SVG
+function CloseIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
+    </svg>
+  );
+}
+
 export function Header() {
   const t = useTranslations('Header');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  // Close on Escape
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      setMenuOpen(false);
+      // Return focus to the hamburger button
+      buttonRef.current?.focus();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      // Prevent body scroll while menu is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen, handleKeyDown]);
+
+  // Close menu when clicking an anchor link (scroll-to sections)
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header className="sticky top-0 z-40 border-b border-[color:var(--color-border)] bg-[color:var(--color-bg-primary)]/90 backdrop-blur supports-[backdrop-filter]:bg-[color:var(--color-bg-primary)]/80">
@@ -86,6 +162,21 @@ export function Header() {
             <span>Studio</span>
           </span>
         </Link>
+
+        {/* Mobile: hamburger button */}
+        <button
+          ref={buttonRef}
+          type="button"
+          className="flex items-center justify-center text-[color:var(--color-accent-gold)] focus-visible:[filter:drop-shadow(0_0_12px_rgba(212,165,116,0.8))] focus-visible:outline-none md:hidden"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          aria-label={menuOpen ? t('menuClose') : t('menuOpen')}
+          onClick={() => setMenuOpen((prev) => !prev)}
+        >
+          {menuOpen ? <CloseIcon /> : <HamburgerIcon />}
+        </button>
+
+        {/* Desktop: full nav + language switcher */}
         <div className="hidden items-center gap-10 md:flex">
           <nav aria-label="Primary">
             <ul className="flex gap-10 text-base">
@@ -108,6 +199,56 @@ export function Header() {
           </nav>
           <LanguageSwitcher />
         </div>
+      </div>
+
+      {/* Mobile slide-down menu */}
+      <div
+        id="mobile-menu"
+        ref={menuRef}
+        className={[
+          'overflow-hidden border-t border-[color:var(--color-border)] bg-[color:var(--color-bg-primary)] md:hidden',
+          'transition-[max-height,opacity] duration-300 ease-in-out',
+          menuOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0',
+        ].join(' ')}
+        aria-label={menuOpen ? t('menuOpen') : undefined}
+        // `inert` removes the panel from the accessibility tree AND
+        // prevents keyboard focus on the links inside — fixing the
+        // axe-core "aria-hidden-focus" violation that `aria-hidden`
+        // alone would cause (focusable elements inside a hidden region).
+        {...(!menuOpen ? { inert: true } : {})}
+      >
+        <nav aria-label="Primary" className="mx-auto max-w-5xl px-6 pt-4 pb-6">
+          <ul className="space-y-1">
+            <li>
+              <a
+                href="#approach"
+                className={mobileLinkClass}
+                style={navLinkStyle}
+                onClick={closeMenu}
+              >
+                {t('approach')}
+              </a>
+            </li>
+            <li>
+              <a href="#work" className={mobileLinkClass} style={navLinkStyle} onClick={closeMenu}>
+                {t('work')}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                className={mobileLinkClass}
+                style={navLinkStyle}
+                onClick={closeMenu}
+              >
+                {t('contact')}
+              </a>
+            </li>
+          </ul>
+          <div className="mt-4 border-t border-[color:var(--color-border)] pt-4">
+            <LanguageSwitcher />
+          </div>
+        </nav>
       </div>
     </header>
   );
