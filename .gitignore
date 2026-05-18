@@ -32,6 +32,9 @@ Thumbs.db
 *.swo
 .idea/
 
+# one-off ship/deploy helper scripts
+ship-*.ps1
+
 # debug
 npm-debug.log*
 yarn-debug.log*
