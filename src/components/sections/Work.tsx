@@ -84,7 +84,7 @@ export function Work() {
                   alt={project.imageAlt}
                   width={240}
                   height={240}
-                  unoptimized
+                  unoptimized={project.image.endsWith('.svg')}
                   className="h-full w-auto object-contain"
                 />
               </div>

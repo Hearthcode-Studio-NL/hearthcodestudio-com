@@ -15,6 +15,7 @@
 /playwright-report
 /test-results
 /lighthouseci
+/.lighthouseci
 
 # next.js
 /.next/
