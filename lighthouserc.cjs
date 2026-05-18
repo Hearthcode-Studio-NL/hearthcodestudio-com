@@ -2,7 +2,7 @@
 // Reference: HearthCode-Vault/04-Standards/Testing-Policy.md § Performance.
 //
 // Why production URL, not localhost:
-// `src/middleware.ts` sends `X-Robots-Tag: noindex` on any host that isn't
+// `src/proxy.ts` sends `X-Robots-Tag: noindex` on any host that isn't
 // hearthcodestudio.com (protects preview deploys from indexing). Running
 // against localhost would always fail the SEO `is-crawlable` audit. The
 // production URL sees the real response with no noindex header.
@@ -11,9 +11,10 @@ module.exports = {
   ci: {
     collect: {
       url: [
-        'https://hearthcodestudio.com/',
-        'https://hearthcodestudio.com/privacy',
-        'https://hearthcodestudio.com/toegankelijkheidsverklaring',
+        'https://hearthcodestudio.com/nl',
+        'https://hearthcodestudio.com/nl/privacy',
+        'https://hearthcodestudio.com/nl/toegankelijkheidsverklaring',
+        'https://hearthcodestudio.com/en',
       ],
       numberOfRuns: 3,
     },

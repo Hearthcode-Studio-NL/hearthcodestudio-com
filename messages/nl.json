@@ -1,0 +1,79 @@
+{
+  "Metadata": {
+    "title": "HearthCode Studio — Digitaal vakwerk, diep geworteld.",
+    "titleTemplate": "%s — HearthCode Studio",
+    "description": "Een eenpersoons digitale studio in Nederland — apps, websites en IT-advies voor opdrachtgevers die digitaal werk doordacht willen laten uitvoeren. Twintig jaar ervaring als business-analist, toegepast op ambachtelijke schaal.",
+    "ogTitle": "HearthCode Studio — Digitaal vakwerk, diep geworteld.",
+    "ogDescription": "Apps, websites en IT-advies — digitaal werk, doordacht uitgevoerd.",
+    "twitterTitle": "HearthCode Studio — Digitaal vakwerk, diep geworteld.",
+    "twitterDescription": "Apps, websites en IT-advies — digitaal werk, doordacht uitgevoerd."
+  },
+  "SkipLink": {
+    "label": "Ga naar hoofdinhoud"
+  },
+  "Header": {
+    "homeLabel": "HearthCode Studio — home",
+    "approach": "Aanpak",
+    "work": "Werk",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "tagline": "Digitaal vakwerk, diep geworteld.",
+    "description": "Apps, websites en IT-advies — gebouwd voor opdrachtgevers die digitaal werk doordacht willen laten uitvoeren.",
+    "cta": "Begin een gesprek"
+  },
+  "Approach": {
+    "heading": "De aanpak",
+    "p1": "De aanpak combineert business-analyse met technische uitvoering — het echte probleem begrijpen voordat er een oplossing wordt voorgesteld, en die vervolgens met precisie bouwen. Of het nu gaat om het ontwerpen van een consumer-app, een professionele website, of het helpen van een team bij een technologiebeslissing: elk traject begint met de vragen die de meesten overslaan.",
+    "p2": "Gevestigd in Nederland, werkend met opdrachtgevers wereldwijd. Verwacht heldere communicatie, doordachte afwegingen en digitale producten die gebouwd zijn met respect voor de mensen die ze gaan gebruiken."
+  },
+  "Person": {
+    "heading": "De persoon erachter",
+    "p1": "Ik ben Wijnand. Al meer dan twintig jaar werk ik als business-analist in de bank- en financiële sector — voornamelijk in Investments en Securities — als vertaler tussen wat businessleiders nodig hebben en wat technologieteams bouwen. Dat vertaalwerk is waar ik het meeste heb geleerd: hoe je de vragen stelt die het echte probleem vormgeven, hoe je oplossingen afbakent die onder druk standhouden, en hoe je ervoor zorgt dat het eindresultaat daadwerkelijk dient wie het gebruikt.",
+    "p2": "HearthCode Studio is waar ik die ervaring toepas buiten de bedrijfscontext. Dezelfde zorgvuldigheid die ik aan complexe financiële systemen besteed, nu gericht op apps, websites en technologieadvies voor opdrachtgevers die doordacht werk willen.",
+    "p3": "Ik geloof in het bewust inzetten van AI-tools in plaats van alleen snel, in strategie boven pure uitvoering, en in digitale producten die de mensen respecteren die ze uiteindelijk gaan gebruiken. Goede technologie is zelden de luidste of de nieuwste — het is het werk dat helder begreep wat het moest zijn.",
+    "based": "Gevestigd in Nederland. Werkend met opdrachtgevers wereldwijd."
+  },
+  "Work": {
+    "heading": "Werk",
+    "intro": "Een momentopname van wat er in de maak is — lopende builds, tooling-schetsen en de studiosite zelf.",
+    "swipeHint": "Veeg om meer projecten te zien →",
+    "projects": {
+      "pum": {
+        "name": "property-utility-mapper",
+        "description": "Een tool voor het mappen van nutsbedrijven aan vastgoedregistraties. Open-source, in actieve ontwikkeling als schetsboek voor hoe de studio wil werken.",
+        "status": "In actieve ontwikkeling",
+        "imageAlt": "property-utility-mapper icoon",
+        "hrefLabel": "Bekijk op GitHub"
+      },
+      "dap2d": {
+        "name": "DAP2D — rebuild",
+        "description": "Herbouw van een holistische dierenpraktijk. Foto-audit, BRG-2 kleurenpalet, content herschrijven. In uitvoering — meer details volgen.",
+        "status": "In uitvoering",
+        "imageAlt": "DAP2D-merk",
+        "hrefLabel": "Bezoek site"
+      },
+      "hearthcode": {
+        "name": "HearthCode Studio",
+        "description": "Deze site die je nu leest. Apps, websites en IT-advies. Broncode op GitHub — Next.js 16, Tailwind v4, Vercel.",
+        "status": "Live",
+        "imageAlt": "HearthCode Studio-logo",
+        "hrefLabel": "Bekijk op GitHub"
+      }
+    }
+  },
+  "Contact": {
+    "heading": "Begin een gesprek",
+    "description": "E-mail is de beste manier om contact op te nemen. Verwacht een reactie binnen een dag of twee — meestal sneller, soms wat langer wanneer er iets niet-triviaals in de lucht is."
+  },
+  "Footer": {
+    "copyright": "© 2026 HearthCode Studio",
+    "privacy": "Privacy",
+    "accessibility": "Toegankelijkheid",
+    "socialLinksLabel": "Sociale links"
+  },
+  "LanguageSwitcher": {
+    "switchTo": "English",
+    "label": "Taal wisselen"
+  }
+}

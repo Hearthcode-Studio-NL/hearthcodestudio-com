@@ -1,5 +1,7 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+
+import { Link } from '@/i18n/navigation';
 
 type Social = {
   name: string;
@@ -44,23 +46,25 @@ const footerLinkClass = [
 const noUnderline = { textDecoration: 'none' };
 
 export function Footer() {
+  const t = useTranslations('Footer');
+
   return (
     <footer className="mt-24 border-t border-[color:var(--color-border)]">
       <div className="mx-auto flex max-w-5xl flex-col gap-6 px-6 py-10 text-sm text-[color:var(--color-accent-gold)] md:grid md:grid-cols-3 md:items-center md:gap-4">
         <div className="text-center md:text-left">
-          <div>© 2026 HearthCode Studio</div>
+          <div>{t('copyright')}</div>
           <div className="mt-1">
             <abbr title="Kamer van Koophandel" style={noUnderline}>
               KvK
             </abbr>
-            : 42047881 ·{' '}
+            : 42047881 &middot;{' '}
             <abbr title="Belasting over de Toegevoegde Waarde" style={noUnderline}>
               BTW
             </abbr>
             : NL005456707B34
           </div>
         </div>
-        <ul aria-label="Social links" className="flex justify-center gap-4">
+        <ul aria-label={t('socialLinksLabel')} className="flex justify-center gap-4">
           {socials.map((social) => (
             <li key={social.name}>
               <a
@@ -78,7 +82,7 @@ export function Footer() {
         <ul className="flex justify-center gap-6 md:justify-end">
           <li>
             <Link href="/privacy" className={footerLinkClass} style={footerLinkStyle}>
-              Privacy
+              {t('privacy')}
             </Link>
           </li>
           <li>
@@ -87,7 +91,7 @@ export function Footer() {
               className={footerLinkClass}
               style={footerLinkStyle}
             >
-              Toegankelijkheid
+              {t('accessibility')}
             </Link>
           </li>
         </ul>

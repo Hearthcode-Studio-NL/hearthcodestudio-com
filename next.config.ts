@@ -1,3 +1,5 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
 import type { NextConfig } from 'next';
 
 const securityHeaders = [
@@ -105,4 +107,8 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// createNextIntlPlugin() wraps the config so next-intl can:
+// 1. Find the i18n/request.ts file that tells it how to load translations
+// 2. Optimise translation bundles at build time (tree-shaking unused keys)
+const withNextIntl = createNextIntlPlugin();
+export default withNextIntl(nextConfig);

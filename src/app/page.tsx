@@ -1,17 +1,7 @@
-import { Approach } from '@/components/sections/Approach';
-import { Contact } from '@/components/sections/Contact';
-import { Hero } from '@/components/sections/Hero';
-import { Person } from '@/components/sections/Person';
-import { Work } from '@/components/sections/Work';
+import { redirect } from 'next/navigation';
 
-export default function HomePage() {
-  return (
-    <>
-      <Hero />
-      <Approach />
-      <Person />
-      <Work />
-      <Contact />
-    </>
-  );
+// The next-intl proxy redirects / to /nl/ before this page renders.
+// This fallback exists only as a safety net.
+export default function RootPage() {
+  redirect('/nl');
 }

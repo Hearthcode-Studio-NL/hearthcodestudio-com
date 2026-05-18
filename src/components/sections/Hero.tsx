@@ -1,6 +1,9 @@
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 export function Hero() {
+  const t = useTranslations('Hero');
+
   return (
     <section
       id="top"
@@ -19,11 +22,11 @@ export function Hero() {
       </h1>
 
       <p className="font-ornament -mt-2 text-2xl text-[color:var(--fg-2)] italic md:text-3xl">
-        Digital craft, deeply rooted.
+        {t('tagline')}
       </p>
 
       <p className="mt-4 max-w-xl text-base text-[color:var(--fg-2)] md:text-lg">
-        Apps, websites, and IT advisory — built for clients who want digital work done thoughtfully.
+        {t('description')}
       </p>
 
       <a
@@ -38,7 +41,7 @@ export function Hero() {
           'focus-visible:shadow-[var(--glow-flame)] focus-visible:outline-none focus-visible:[text-decoration:none!important]',
         ].join(' ')}
       >
-        Start a conversation
+        {t('cta')}
       </a>
     </section>
   );

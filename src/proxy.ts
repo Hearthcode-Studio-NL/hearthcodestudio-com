@@ -1,24 +1,32 @@
-import { NextResponse, type NextRequest } from 'next/server';
+import createMiddleware from 'next-intl/middleware';
+
+import { routing } from './i18n/routing';
+
+import type { NextRequest } from 'next/server';
 
 /**
- * Send `X-Robots-Tag: noindex, nofollow` on every host that isn't the
- * canonical production domain. That covers `hearthcodestudio-com.vercel.app`,
- * any `*-git-*.vercel.app` preview alias, raw IPs, and localhost — keeping
- * search engines from indexing staging URLs and creating duplicate-content
- * problems for the real domain.
+ * Two responsibilities:
  *
- * The real domain (`hearthcodestudio.com`, with or without `www.` prefix)
- * serves indexable responses unchanged. When DNS cuts over, this middleware
- * automatically stops tagging — no code change needed.
+ * 1. **Locale routing** (next-intl) — detects the visitor's preferred
+ *    language and redirects bare paths like `/privacy` to `/nl/privacy`
+ *    or `/en/privacy`. The `[locale]` segment is required for all pages.
  *
- * Renamed from middleware.ts to proxy.ts for Next.js 16 convention.
+ * 2. **X-Robots-Tag on non-canonical hosts** — preview deploys on
+ *    `*.vercel.app`, raw IPs, and localhost get a `noindex` header so
+ *    search engines only index the real domain.
+ *
+ * Renamed from middleware.ts to proxy.ts for the Next.js 16 convention.
  */
 const CANONICAL_HOSTS = new Set(['hearthcodestudio.com', 'www.hearthcodestudio.com']);
 
-export function proxy(request: NextRequest) {
-  const host = (request.headers.get('host') ?? '').toLowerCase();
-  const response = NextResponse.next();
+const intlMiddleware = createMiddleware(routing);
 
+export default function proxy(request: NextRequest) {
+  // Run next-intl's locale detection and redirect logic first
+  const response = intlMiddleware(request);
+
+  // Tag non-canonical hosts with noindex (preview deploys, localhost, etc.)
+  const host = (request.headers.get('host') ?? '').toLowerCase();
   if (!CANONICAL_HOSTS.has(host)) {
     response.headers.set('X-Robots-Tag', 'noindex, nofollow');
   }
@@ -26,8 +34,8 @@ export function proxy(request: NextRequest) {
   return response;
 }
 
-// Skip Next's static + image-optimisation routes; the header isn't useful
-// there and matching them slows down asset delivery.
+// Match all pathnames except static assets and API routes.
+// next-intl needs to see every page route to inject the locale prefix.
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon\\.ico|fonts/).*)'],
+  matcher: ['/((?!api|trpc|_next|_vercel|.*\\..*).*)'],
 };
