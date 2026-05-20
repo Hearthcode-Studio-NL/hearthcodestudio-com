@@ -42,3 +42,15 @@ Tests:
 - Brand tokens: `HearthCode-Vault/06-Brand-Assets/css/colors_and_type.css` (Path A per ADR-0001)
 - Studio credit: `© {currentYear} HearthCode Studio` (own-site variant per Studio-Credit-Standard.md)
 - Legal: KvK 42047881, BTW-id NL005456707B34 in footer
+
+## End-of-session ritual
+
+**Session clock:** HearthCode Studio uses `_cowork/session-clock.md` (in the HearthCode Studio root) to track start/stop times automatically. On first user message, write the start time. On session close, write the stop time and calculate duration.
+
+**Time log:** Append a row to `_cowork/time-log.md` with the duration from the session clock.
+
+If the HearthCode Studio parent workspace is NOT mounted, produce a ready-to-paste entry:
+
+```
+| YYYY-MM-DD | website | hours | Short description | tracked |
+```
