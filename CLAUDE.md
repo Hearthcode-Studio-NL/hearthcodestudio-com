@@ -45,12 +45,6 @@ Tests:
 
 ## End-of-session ritual
 
-**Session clock:** HearthCode Studio uses `_cowork/session-clock.md` (in the HearthCode Studio root) to track start/stop times automatically. On first user message, write the start time. On session close, write the stop time and calculate duration.
+**Session clock:** On first user message, write the start time to `_cowork/session-clock.md` (this project's local copy). Use `TZ="Europe/Amsterdam" date` in bash. On session close, write the stop time and calculate duration.
 
-**Time log:** Append a row to `_cowork/time-log.md` with the duration from the session clock.
-
-If the HearthCode Studio parent workspace is NOT mounted, produce a ready-to-paste entry:
-
-```
-| YYYY-MM-DD | website | hours | Short description | tracked |
-```
+**Time log:** If the HearthCode Studio root workspace is mounted, append a row directly to the root `_cowork/time-log.md`. If NOT mounted, leave the entry in this project's `_cowork/session-clock.md` under "Unprocessed entries" — the next root session will consolidate it automatically.
