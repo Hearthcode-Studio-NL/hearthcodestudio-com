@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
+import { company } from '@/lib/company';
+
 export function Hero() {
   const t = useTranslations('Hero');
 
@@ -21,7 +23,10 @@ export function Hero() {
         />
       </h1>
 
-      <p className="font-ornament -mt-2 text-2xl text-[color:var(--fg-2)] italic md:text-3xl">
+      <p
+        data-testid="hero-tagline"
+        className="font-ornament -mt-2 text-2xl text-[color:var(--fg-2)] italic md:text-3xl"
+      >
         {t('tagline')}
       </p>
 
@@ -30,15 +35,15 @@ export function Hero() {
       </p>
 
       <a
-        href="mailto:info@hearthcodestudio.com?subject=Hello%20HearthCode"
-        style={{ textDecoration: 'none' }}
+        data-testid="hero-cta"
+        href={`mailto:${company.email}?subject=Hello%20HearthCode`}
         className={[
           'mt-6 inline-flex items-center rounded-lg px-8 py-4',
           'bg-[color:var(--color-bg-primary)] text-[color:var(--color-accent-gold)]',
-          'font-semibold tracking-wide [text-decoration:none!important]',
+          'font-semibold tracking-wide no-underline',
           'border border-[color:var(--color-accent-gold)] transition',
-          'hover:shadow-[var(--glow-flame)] hover:[text-decoration:none!important]',
-          'focus-visible:shadow-[var(--glow-flame)] focus-visible:outline-none focus-visible:[text-decoration:none!important]',
+          'hover:no-underline hover:shadow-[var(--glow-flame)]',
+          'focus-visible:no-underline focus-visible:shadow-[var(--glow-flame)] focus-visible:outline-none',
         ].join(' ')}
       >
         {t('cta')}

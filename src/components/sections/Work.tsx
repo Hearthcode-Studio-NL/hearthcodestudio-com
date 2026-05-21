@@ -46,7 +46,7 @@ export function Work() {
           hinting that you can swipe. On md+: cards sit in a row. */}
       <ul
         aria-label="Projects"
-        className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex snap-x snap-mandatory [scrollbar-width:none] gap-6 overflow-x-auto pb-4 [-webkit-overflow-scrolling:touch] [&::-webkit-scrollbar]:hidden"
       >
         {projectKeys.map((key) => {
           const meta = projectMeta[key];
@@ -61,7 +61,6 @@ export function Work() {
                 href={`/projects/${key}`}
                 aria-label={t(`projects.${key}.name`) + ' — ' + t(`projects.${key}.hrefLabel`)}
                 className={cardLinkClass}
-                style={{ textDecoration: 'none' }}
               >
                 <div className="flex aspect-[5/4] items-center justify-center bg-[color:var(--color-bg-primary)] p-4">
                   <Image
@@ -74,7 +73,10 @@ export function Work() {
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
-                  <span className="font-ornament text-sm font-medium tracking-wide text-[color:var(--fg-3)] uppercase">
+                  <span
+                    data-testid={`project-status-${key}`}
+                    className="font-ornament text-sm font-medium tracking-wide text-[color:var(--fg-3)] uppercase"
+                  >
                     {t(`projects.${key}.status`)}
                   </span>
                   <h3 className="mt-2 text-[color:var(--color-accent-gold)]">

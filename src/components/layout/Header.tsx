@@ -5,21 +5,19 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Link, usePathname } from '@/i18n/navigation';
 
-const navLinkStyle = { textDecoration: 'none' };
-
 const navLinkClass = [
   'text-[color:var(--color-accent-gold)] no-underline',
   'transition',
-  'hover:no-underline hover:[text-shadow:0_0_16px_rgba(212,165,116,1),0_0_32px_rgba(212,165,116,0.6),0_0_48px_rgba(212,165,116,0.3)]',
-  'focus-visible:no-underline focus-visible:[text-shadow:0_0_16px_rgba(212,165,116,1),0_0_32px_rgba(212,165,116,0.6),0_0_48px_rgba(212,165,116,0.3)] focus-visible:outline-none',
+  'hover:no-underline hover:[text-shadow:var(--text-glow-gold)]',
+  'focus-visible:no-underline focus-visible:[text-shadow:var(--text-glow-gold)] focus-visible:outline-none',
 ].join(' ');
 
 // Mobile menu link — larger tap targets, full-width
 const mobileLinkClass = [
   'block py-3 text-lg text-[color:var(--color-accent-gold)] no-underline',
   'transition',
-  'hover:no-underline hover:[text-shadow:0_0_16px_rgba(212,165,116,1),0_0_32px_rgba(212,165,116,0.6),0_0_48px_rgba(212,165,116,0.3)]',
-  'focus-visible:no-underline focus-visible:[text-shadow:0_0_16px_rgba(212,165,116,1),0_0_32px_rgba(212,165,116,0.6),0_0_48px_rgba(212,165,116,0.3)] focus-visible:outline-none',
+  'hover:no-underline hover:[text-shadow:var(--text-glow-gold)]',
+  'focus-visible:no-underline focus-visible:[text-shadow:var(--text-glow-gold)] focus-visible:outline-none',
 ].join(' ');
 
 // Language switcher — shows both options (NL / EN) with the active
@@ -64,7 +62,6 @@ function LanguageSwitcher() {
                   'hover:text-[color:var(--color-accent-gold)] hover:no-underline',
                   'focus-visible:text-[color:var(--color-accent-gold)] focus-visible:outline-none',
                 ].join(' ')}
-                style={navLinkStyle}
                 aria-label={l.code === 'nl' ? 'Schakel naar Nederlands' : 'Switch to English'}
               >
                 {l.label}
@@ -154,7 +151,7 @@ export function Header() {
         <Link
           href="/"
           aria-label={t('homeLabel')}
-          className="hc-wordmark transition hover:[filter:drop-shadow(0_0_18px_rgba(212,165,116,0.95))_drop-shadow(0_0_36px_rgba(212,165,116,0.5))] focus-visible:[filter:drop-shadow(0_0_18px_rgba(212,165,116,0.95))_drop-shadow(0_0_36px_rgba(212,165,116,0.5))] focus-visible:outline-none"
+          className="hc-wordmark transition hover:[filter:var(--filter-glow-gold)] focus-visible:[filter:var(--filter-glow-gold)] focus-visible:outline-none"
           style={{ ['--hc-wordmark-size' as string]: '1.75rem' }}
         >
           <span className="hc-wordmark__primary">HearthCode</span>
@@ -167,7 +164,7 @@ export function Header() {
         <button
           ref={buttonRef}
           type="button"
-          className="flex items-center justify-center text-[color:var(--color-accent-gold)] focus-visible:[filter:drop-shadow(0_0_12px_rgba(212,165,116,0.8))] focus-visible:outline-none md:hidden"
+          className="flex items-center justify-center text-[color:var(--color-accent-gold)] focus-visible:[filter:var(--filter-glow-gold-sm)] focus-visible:outline-none md:hidden"
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
           aria-label={menuOpen ? t('menuClose') : t('menuOpen')}
@@ -181,17 +178,17 @@ export function Header() {
           <nav aria-label="Primary">
             <ul className="flex gap-10 text-base">
               <li>
-                <a href="#approach" className={navLinkClass} style={navLinkStyle}>
+                <a href="#approach" className={navLinkClass}>
                   {t('approach')}
                 </a>
               </li>
               <li>
-                <a href="#work" className={navLinkClass} style={navLinkStyle}>
+                <a href="#work" className={navLinkClass}>
                   {t('work')}
                 </a>
               </li>
               <li>
-                <a href="#contact" className={navLinkClass} style={navLinkStyle}>
+                <a href="#contact" className={navLinkClass}>
                   {t('contact')}
                 </a>
               </li>
@@ -220,27 +217,17 @@ export function Header() {
         <nav aria-label="Primary" className="mx-auto max-w-5xl px-6 pt-4 pb-6">
           <ul className="space-y-1">
             <li>
-              <a
-                href="#approach"
-                className={mobileLinkClass}
-                style={navLinkStyle}
-                onClick={closeMenu}
-              >
+              <a href="#approach" className={mobileLinkClass} onClick={closeMenu}>
                 {t('approach')}
               </a>
             </li>
             <li>
-              <a href="#work" className={mobileLinkClass} style={navLinkStyle} onClick={closeMenu}>
+              <a href="#work" className={mobileLinkClass} onClick={closeMenu}>
                 {t('work')}
               </a>
             </li>
             <li>
-              <a
-                href="#contact"
-                className={mobileLinkClass}
-                style={navLinkStyle}
-                onClick={closeMenu}
-              >
+              <a href="#contact" className={mobileLinkClass} onClick={closeMenu}>
                 {t('contact')}
               </a>
             </li>

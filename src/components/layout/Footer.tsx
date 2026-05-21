@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 import { Link } from '@/i18n/navigation';
+import { company } from '@/lib/company';
 
 type Social = {
   name: string;
@@ -12,17 +13,17 @@ type Social = {
 const socials: Social[] = [
   {
     name: 'GitHub',
-    href: 'https://github.com/Hearthcode-Studio-NL',
+    href: company.social.github,
     icon: '/brand/icons/social/github-128.png',
   },
   {
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/company/hearthcode-studio-807823404',
+    href: company.social.linkedin,
     icon: '/brand/icons/social/linkedin-128.png',
   },
   {
     name: 'Instagram',
-    href: 'https://www.instagram.com/hearthcodestudio',
+    href: company.social.instagram,
     icon: '/brand/icons/social/instagram-128.png',
   },
 ];
@@ -30,20 +31,16 @@ const socials: Social[] = [
 const socialLinkClass = [
   'inline-flex items-center justify-center rounded-full p-2',
   'transition',
-  'hover:[filter:drop-shadow(0_0_18px_rgba(212,165,116,0.95))_drop-shadow(0_0_36px_rgba(212,165,116,0.5))]',
-  'focus-visible:[filter:drop-shadow(0_0_18px_rgba(212,165,116,0.95))_drop-shadow(0_0_36px_rgba(212,165,116,0.5))]',
+  'hover:[filter:var(--filter-glow-gold)]',
+  'focus-visible:[filter:var(--filter-glow-gold)]',
   'focus-visible:outline-none',
 ].join(' ');
 
-const footerLinkStyle = { textDecoration: 'none' };
-
 const footerLinkClass = [
   'no-underline transition',
-  'hover:no-underline hover:[text-shadow:0_0_12px_rgba(212,165,116,0.85),0_0_24px_rgba(212,165,116,0.45)]',
-  'focus-visible:no-underline focus-visible:[text-shadow:0_0_12px_rgba(212,165,116,0.85),0_0_24px_rgba(212,165,116,0.45)] focus-visible:outline-none',
+  'hover:no-underline hover:[text-shadow:var(--text-glow-gold-sm)]',
+  'focus-visible:no-underline focus-visible:[text-shadow:var(--text-glow-gold-sm)] focus-visible:outline-none',
 ].join(' ');
-
-const noUnderline = { textDecoration: 'none' };
 
 export function Footer() {
   const t = useTranslations('Footer');
@@ -54,14 +51,14 @@ export function Footer() {
         <div className="text-center md:text-left">
           <div>{t('copyright')}</div>
           <div className="mt-1">
-            <abbr title="Kamer van Koophandel" style={noUnderline}>
+            <abbr title="Kamer van Koophandel" className="no-underline">
               KvK
             </abbr>
-            : 42047881 &middot;{' '}
-            <abbr title="Belasting over de Toegevoegde Waarde" style={noUnderline}>
+            : {company.kvk} &middot;{' '}
+            <abbr title="Belasting over de Toegevoegde Waarde" className="no-underline">
               BTW
             </abbr>
-            : NL005456707B34
+            : {company.btwId}
           </div>
         </div>
         <ul aria-label={t('socialLinksLabel')} className="flex justify-center gap-4">
@@ -81,16 +78,12 @@ export function Footer() {
         </ul>
         <ul className="flex justify-center gap-6 md:justify-end">
           <li>
-            <Link href="/privacy" className={footerLinkClass} style={footerLinkStyle}>
+            <Link href="/privacy" className={footerLinkClass}>
               {t('privacy')}
             </Link>
           </li>
           <li>
-            <Link
-              href="/toegankelijkheidsverklaring"
-              className={footerLinkClass}
-              style={footerLinkStyle}
-            >
+            <Link href="/toegankelijkheidsverklaring" className={footerLinkClass}>
               {t('accessibility')}
             </Link>
           </li>

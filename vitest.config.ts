@@ -31,11 +31,15 @@ export default defineConfig({
         '**/*.d.ts',
         'src/test/',
       ],
+      // Ratcheted 2026-05-21 after adding Footer, ProjectContent, Hero,
+      // Work, and Contact tests (30 tests total, 8 files).
+      // Actuals: stmts 98%, branch 89%, funcs 95%, lines 100%.
+      // Thresholds sit a few points below to absorb minor fluctuations.
       thresholds: {
-        lines: 70,
-        functions: 70,
-        branches: 60,
-        statements: 70,
+        lines: 95,
+        functions: 90,
+        branches: 85,
+        statements: 95,
       },
     },
     reporters: process.env.CI ? ['default', 'github-actions'] : ['default'],

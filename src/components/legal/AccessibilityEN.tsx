@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
+import { company } from '@/lib/company';
 
 export function AccessibilityEN() {
   return (
@@ -87,11 +88,9 @@ export function AccessibilityEN() {
           <h2>Report a problem</h2>
           <p>
             Experiencing an accessibility issue on this site? Send an email to{' '}
-            <a href="mailto:info@hearthcodestudio.com?subject=Accessibility">
-              info@hearthcodestudio.com
-            </a>
-            . Please describe where the problem occurs and which assistive technology you are using.
-            A response will follow within two working days. If a reported issue cannot be resolved
+            <a href={`mailto:${company.email}?subject=Accessibility`}>{company.email}</a>. Please
+            describe where the problem occurs and which assistive technology you are using. A
+            response will follow within two working days. If a reported issue cannot be resolved
             within six weeks, it will be listed here with an explanation and an alternative.
           </p>
         </section>

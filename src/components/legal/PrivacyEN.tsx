@@ -1,3 +1,5 @@
+import { company } from '@/lib/company';
+
 export function PrivacyEN() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-16">
@@ -12,9 +14,9 @@ export function PrivacyEN() {
           <h2>Who we are</h2>
           <p>
             HearthCode Studio is a Dutch sole proprietorship. Chamber of Commerce (KvK) number:
-            42047881, VAT identification number: NL005456707B34 (start date 1 May 2026). For
+            {company.kvk}, VAT identification number: {company.btwId} (start date 1 May 2026). For
             questions about this privacy policy:{' '}
-            <a href="mailto:info@hearthcodestudio.com">info@hearthcodestudio.com</a>.
+            <a href={`mailto:${company.email}`}>{company.email}</a>.
           </p>
         </section>
 
@@ -31,8 +33,7 @@ export function PrivacyEN() {
         <section>
           <h2>Contact via email</h2>
           <p>
-            If you contact us at{' '}
-            <a href="mailto:info@hearthcodestudio.com">info@hearthcodestudio.com</a>, HearthCode
+            If you contact us at <a href={`mailto:${company.email}`}>{company.email}</a>, HearthCode
             Studio retains your message and email address for as long as needed to answer your
             question, and for a maximum of two years afterwards for potential follow-up. You can
             request deletion at any time.

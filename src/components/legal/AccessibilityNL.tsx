@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
+import { company } from '@/lib/company';
 
 export function AccessibilityNL() {
   return (
@@ -91,10 +92,8 @@ export function AccessibilityNL() {
           <h2>Problemen melden</h2>
           <p>
             Ondervind je een toegankelijkheidsprobleem op deze site? Stuur een e-mail naar{' '}
-            <a href="mailto:info@hearthcodestudio.com?subject=Toegankelijkheid">
-              info@hearthcodestudio.com
-            </a>
-            . Vermeld waar het probleem zich voordoet en welke hulptechnologie je gebruikt. Een
+            <a href={`mailto:${company.email}?subject=Toegankelijkheid`}>{company.email}</a>.
+            Vermeld waar het probleem zich voordoet en welke hulptechnologie je gebruikt. Een
             reactie volgt binnen twee werkdagen. Als een gerapporteerd probleem niet binnen zes
             weken kan worden opgelost, wordt dit hier genoemd met een toelichting en een
             alternatief.

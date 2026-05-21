@@ -21,6 +21,14 @@ const projectMeta: Record<string, { image: string; github?: string; site?: strin
   },
 };
 
+// Shared class for external-link buttons (GitHub, live site).
+const externalLinkClass = [
+  'inline-flex items-center gap-2 rounded-lg border border-[color:var(--color-accent-gold)]',
+  'px-5 py-2.5 text-sm font-medium text-[color:var(--color-accent-gold)] no-underline transition',
+  'hover:bg-[color:var(--color-accent-gold)]/10 hover:no-underline',
+  'focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent-gold)] focus-visible:outline-none',
+].join(' ');
+
 type Props = {
   slug: string;
 };
@@ -98,7 +106,7 @@ export function ProjectContent({ slug }: Props) {
             href={meta.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border border-[color:var(--color-accent-gold)] px-5 py-2.5 text-sm font-medium text-[color:var(--color-accent-gold)] no-underline transition hover:bg-[color:var(--color-accent-gold)]/10 hover:no-underline focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent-gold)] focus-visible:outline-none"
+            className={externalLinkClass}
           >
             {t('viewOnGitHub')}
             <span aria-hidden="true">{'→'}</span>
@@ -109,7 +117,7 @@ export function ProjectContent({ slug }: Props) {
             href={meta.site}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border border-[color:var(--color-accent-gold)] px-5 py-2.5 text-sm font-medium text-[color:var(--color-accent-gold)] no-underline transition hover:bg-[color:var(--color-accent-gold)]/10 hover:no-underline focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent-gold)] focus-visible:outline-none"
+            className={externalLinkClass}
           >
             {t('visitSite')}
             <span aria-hidden="true">{'→'}</span>

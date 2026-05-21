@@ -48,3 +48,5 @@ Tests:
 **Session clock:** On first user message, write the start time to `_cowork/session-clock.md` (this project's local copy). Use `TZ="Europe/Amsterdam" date` in bash. On session close, write the stop time and calculate duration.
 
 **Time log:** If the HearthCode Studio root workspace is mounted, append a row directly to the root `_cowork/time-log.md`. If NOT mounted, leave the entry in this project's `_cowork/session-clock.md` under "Unprocessed entries" — the next root session will consolidate it automatically.
+
+**Project key:** hearthcodestudio-com work logs under `studio` (not a separate key). The marketing site is part of HearthCode Studio overhead, same as vault, branding, and admin.

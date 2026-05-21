@@ -18,31 +18,29 @@ module.exports = {
         'https://hearthcodestudio.com/en',
         'https://hearthcodestudio.com/en/projects/pum',
       ],
-      numberOfRuns: 3,
+      // 5 runs so the median filters out cold-start outliers on shared
+      // runners. With 3 runs a single bad start could tank the result;
+      // with 5, two outliers still leave a stable middle value.
+      numberOfRuns: 5,
     },
 
     assert: {
+      // Use the median run for assertions — the middle value out of 5
+      // runs. This absorbs the ±20-30% variance on GitHub Actions shared
+      // runners (cold-start outliers can spike to 8s+ LCP) without
+      // lowering the quality bar. The site scores 0.95+ in the real world;
+      // the median of 5 CI runs should clear 0.9 comfortably.
+      aggregationMethod: 'median-run',
+
       assertions: {
-        // Performance threshold is deliberately set lower than the vault
-        // quality bar (0.9) because GitHub Actions shared runners introduce
-        // ±20-30% variance — scoring 0.7–0.8 on pages that hit 0.95+ in
-        // the real world. 0.5 still catches genuine regressions (e.g. a
-        // huge unoptimised image) without producing false failures on every
-        // PR. Tighten back to 0.9 if a paid / dedicated runner lands.
-        'categories:performance': ['error', { minScore: 0.5 }],
+        // Matches the vault quality bar (Testing-Policy.md § Performance).
+        'categories:performance': ['error', { minScore: 0.9 }],
         'categories:accessibility': ['error', { minScore: 1.0 }],
         'categories:seo': ['error', { minScore: 1.0 }],
         'categories:best-practices': ['warn', { minScore: 0.9 }],
 
-        // LCP / CLS / INP per-metric thresholds are kept as warnings, not
-        // hard errors. The binding gate is `categories:performance >= 0.9`
-        // above (the vault Quality Bar — "Lighthouse Perf >= 90 mobile").
-        // GitHub Actions Lighthouse runs have ±20-30% run-to-run variance
-        // (cold-start outliers can hit 8s+); a hard per-metric LCP error
-        // produced false failures even when the overall score was fine.
-        // Tighten back to `error` if a paid CI runner with stable perf
-        // lands, or move Lighthouse to a Vercel preview-URL run instead
-        // of a local-build run on the GH runner.
+        // Per-metric warnings — these complement the category gate.
+        // Kept as warnings because the median already handles outliers.
         'largest-contentful-paint': ['warn', { maxNumericValue: 2500 }],
         'cumulative-layout-shift': ['warn', { maxNumericValue: 0.1 }],
 

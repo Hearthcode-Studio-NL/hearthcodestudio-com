@@ -108,6 +108,17 @@
   --glow-gold: 0 0 20px rgba(212, 165, 116, 0.3);
   --glow-subtle: 0 0 12px rgba(212, 165, 116, 0.15);
 
+  /* ---------- Interactive glow tokens ---------- */
+  /* Used by nav links, footer links, and icon buttons for hover/focus effects.
+     Keeps the gold RGBA values in one place instead of scattered across components. */
+  --text-glow-gold:
+    0 0 16px rgba(212, 165, 116, 1), 0 0 32px rgba(212, 165, 116, 0.6),
+    0 0 48px rgba(212, 165, 116, 0.3);
+  --text-glow-gold-sm: 0 0 12px rgba(212, 165, 116, 0.85), 0 0 24px rgba(212, 165, 116, 0.45);
+  --filter-glow-gold: drop-shadow(0 0 18px rgba(212, 165, 116, 0.95))
+    drop-shadow(0 0 36px rgba(212, 165, 116, 0.5));
+  --filter-glow-gold-sm: drop-shadow(0 0 12px rgba(212, 165, 116, 0.8));
+
   /* ---------- Motion ---------- */
   --duration-instant: 100ms;
   --duration-fast: 200ms;
@@ -269,13 +280,16 @@ a {
    WCAG 2.2 SC 1.4.1 (Use of Color) / SC 2.4.7, since accent-gold on
    cream body text is 1.84:1. The underline is the accessible fallback;
    button- and card-style links stay clean because they aren't inside
-   text-flow elements. */
-:is(p, li, blockquote, dd, dt, figcaption, summary) a {
+   text-flow elements.
+   :where() keeps specificity at (0,0,1) so Tailwind's no-underline
+   utility can override this for button/card links without needing
+   inline style hacks. */
+:where(:is(p, li, blockquote, dd, dt, figcaption, summary)) a {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
-:is(p, li, blockquote, dd, dt, figcaption, summary) a:hover {
+:where(:is(p, li, blockquote, dd, dt, figcaption, summary)) a:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
