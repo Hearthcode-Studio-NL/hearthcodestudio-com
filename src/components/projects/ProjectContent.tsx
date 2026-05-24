@@ -7,8 +7,8 @@ import { Link } from '@/i18n/navigation';
 
 // Non-translatable project metadata: images and external links.
 const projectMeta: Record<string, { image: string; github?: string; site?: string }> = {
-  pum: {
-    image: '/brand/projects/pum-icon.png',
+  erfplan: {
+    image: '/brand/projects/erfplan-logo.png',
     github: 'https://github.com/Hearthcode-Studio-NL/property-utility-mapper',
   },
   dap2d: {

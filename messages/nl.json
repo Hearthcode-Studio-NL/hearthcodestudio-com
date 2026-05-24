@@ -41,11 +41,11 @@
     "intro": "Een momentopname van wat er in de maak is — lopende builds, tooling-schetsen en de studiosite zelf.",
     "swipeHint": "Veeg om meer projecten te zien →",
     "projects": {
-      "pum": {
-        "name": "property-utility-mapper",
-        "description": "Een tool voor het mappen van nutsbedrijven aan vastgoedregistraties. Open-source, in actieve ontwikkeling als schetsboek voor hoe de studio wil werken.",
+      "erfplan": {
+        "name": "ErfPlan",
+        "description": "Een kaarttool voor Nederlandse huiseigenaren om leidingen, gebouwen en erfgrenzen op hun perceel vast te leggen. Lokaal opgeslagen, geen account nodig — je data blijft op je eigen apparaat.",
         "status": "In actieve ontwikkeling",
-        "imageAlt": "property-utility-mapper icoon",
+        "imageAlt": "ErfPlan-logo",
         "hrefLabel": "Lees meer"
       },
       "dap2d": {
@@ -86,19 +86,19 @@
     "status": "Status",
     "scope": "Scope",
     "projects": {
-      "pum": {
-        "title": "property-utility-mapper",
-        "metaTitle": "property-utility-mapper",
-        "metaDescription": "Een open-source tool voor het mappen van nutsbedrijven aan vastgoedregistraties — gebouwd als schetsboek voor hoe HearthCode Studio wil werken.",
-        "intro": "Een open-source tool die vastgoedregistraties koppelt aan nutsbedrijven. Gebouwd in Python, ontworpen als een schetsboek — een plek om werkwijzen, patronen en beslissingen te verkennen voordat ze naar klantwerk verhuizen.",
+      "erfplan": {
+        "title": "ErfPlan",
+        "metaTitle": "ErfPlan — Perceelkaart-tool",
+        "metaDescription": "Een browsergebaseerde kaarttool waarmee Nederlandse huiseigenaren vastleggen wat er ondergronds en bovengronds op hun perceel aanwezig is — leidingen, gebouwen, erfgrenzen en meer.",
+        "intro": "Een browsergebaseerde kaarttool waarmee Nederlandse huiseigenaren precies vastleggen wat er op hun perceel staat — elke leiding, elk gebouw, elke erfgrens en elk object — op een interactieve kaart met satellietbeelden, Kadaster-overlays en GPS-tracking.",
         "paragraphs": [
-          "Het oorspronkelijke probleem is eenvoudig: bij het kopen of beheren van vastgoed moet je weten welke nutsbedrijven gekoppeld zijn — energie, water, internet. Die informatie is verspreid over meerdere bronnen, in wisselende formaten, en zelden klaar voor gebruik.",
-          "PUM brengt die gegevens samen in een enkele mapping. Maar het eigenlijke doel is breder: het dient als werkplaats voor de studio. Hier worden conventies getest, tooling uitgeprobeerd en architectuurkeuzes gemaakt die later in klantprojecten terugkomen.",
-          "Het project is open-source en in actieve ontwikkeling. De broncode staat op GitHub — bijdragen en feedback zijn welkom."
+          "Als huiseigenaar wil je weten wat er ondergronds loopt en waar alles staat — drinkwater, gas, elektriciteit, riolering, internet. Die informatie is verspreid, verouderd, of opgesloten in documenten die je niet makkelijk kunt delen. ErfPlan brengt alles samen op een interactieve kaart.",
+          "De tool draait volledig in je browser. Geen account nodig, geen data verlaat je apparaat — alles wordt lokaal opgeslagen via IndexedDB. Je kunt leidingen met de hand tekenen, ze met GPS inlopen, of bestaande GeoJSON-data importeren. Gebouwen kun je tekenen als polygonen of direct ophalen uit het BAG-register (Kadaster). Erfgrenzen, puntobjecten zoals putten en afsluiters, foto-annotaties — het zit er allemaal in.",
+          "ErfPlan is open-source en tweetalig (Nederlands en Engels). Exporteer je perceelkaart als GeoJSON, PNG of PDF om te delen met aannemers, gemeenten of andere huiseigenaren. Gebouwd met React, Leaflet en Vite — ontworpen om offline te werken als Progressive Web App."
         ],
-        "stack": "Python · Open-source · CLI",
+        "stack": "React · Vite · Leaflet · TypeScript",
         "statusText": "In actieve ontwikkeling",
-        "scopeText": "Intern tooling-project, open-source"
+        "scopeText": "Intern product, open-source"
       },
       "dap2d": {
         "title": "DAP2D — rebuild",

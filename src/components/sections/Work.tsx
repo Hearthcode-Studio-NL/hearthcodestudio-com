@@ -9,13 +9,13 @@ import { Link } from '@/i18n/navigation';
 // (images). The translatable text (name, description,
 // status, labels) comes from the JSON translation files.
 // Cards now link to internal detail pages (/projects/[slug]).
-const projectKeys = ['pum', 'dap2d', 'hearthcode'] as const;
+const projectKeys = ['erfplan', 'dap2d', 'hearthcode'] as const;
 
 type ProjectKey = (typeof projectKeys)[number];
 
 const projectMeta: Record<ProjectKey, { image: string }> = {
-  pum: {
-    image: '/brand/projects/pum-icon.png',
+  erfplan: {
+    image: '/brand/projects/erfplan-logo.png',
   },
   dap2d: {
     image: '/brand/projects/dap2d-mark.png',

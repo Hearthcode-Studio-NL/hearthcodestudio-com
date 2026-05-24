@@ -60,11 +60,13 @@ test('NL: toegankelijkheidsverklaring page renders a heading', async ({ page }) 
 });
 
 test('NL: project detail page renders metadata bar', async ({ page }) => {
-  await page.goto('/nl/projects/pum');
+  await page.goto('/nl/projects/erfplan');
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   // Status badge rendered (content comes from translations — we just check it exists)
   await expect(
-    page.locator('[data-testid="project-status-pum"]').or(page.getByRole('heading', { level: 1 })),
+    page
+      .locator('[data-testid="project-status-erfplan"]')
+      .or(page.getByRole('heading', { level: 1 })),
   ).toBeVisible();
   // Back link present
   await expect(page.getByRole('link', { name: /terug|back/i })).toBeVisible();
@@ -72,8 +74,8 @@ test('NL: project detail page renders metadata bar', async ({ page }) => {
 
 test('NL: project carousel links to detail pages', async ({ page }) => {
   await page.goto('/nl');
-  const projectLink = page.getByRole('link', { name: /property-utility-mapper/i }).first();
-  await expect(projectLink).toHaveAttribute('href', /\/nl\/projects\/pum/);
+  const projectLink = page.getByRole('link', { name: /ErfPlan/i }).first();
+  await expect(projectLink).toHaveAttribute('href', /\/nl\/projects\/erfplan/);
 });
 
 // --- English ---
@@ -117,18 +119,20 @@ test('EN: accessibility statement renders a heading', async ({ page }) => {
 });
 
 test('EN: project detail page renders metadata bar', async ({ page }) => {
-  await page.goto('/en/projects/pum');
+  await page.goto('/en/projects/erfplan');
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   await expect(
-    page.locator('[data-testid="project-status-pum"]').or(page.getByRole('heading', { level: 1 })),
+    page
+      .locator('[data-testid="project-status-erfplan"]')
+      .or(page.getByRole('heading', { level: 1 })),
   ).toBeVisible();
   await expect(page.getByRole('link', { name: /terug|back/i })).toBeVisible();
 });
 
 test('EN: project carousel links to detail pages', async ({ page }) => {
   await page.goto('/en');
-  const projectLink = page.getByRole('link', { name: /property-utility-mapper/i }).first();
-  await expect(projectLink).toHaveAttribute('href', /\/en\/projects\/pum/);
+  const projectLink = page.getByRole('link', { name: /ErfPlan/i }).first();
+  await expect(projectLink).toHaveAttribute('href', /\/en\/projects\/erfplan/);
 });
 
 // --- Locale redirect ---

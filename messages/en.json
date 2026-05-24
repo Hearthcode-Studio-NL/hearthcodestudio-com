@@ -41,11 +41,11 @@
     "intro": "A snapshot of what is in flight — current builds, tooling sketches, and the studio site itself.",
     "swipeHint": "Swipe to see more projects →",
     "projects": {
-      "pum": {
-        "name": "property-utility-mapper",
-        "description": "A tool for mapping utilities across property records. Open-source, in active development as a sketchbook for how the studio wants to work.",
+      "erfplan": {
+        "name": "ErfPlan",
+        "description": "A map tool for Dutch homeowners to document utility lines, buildings, and boundaries on their property. Local-first, no account needed — your data stays on your device.",
         "status": "In active development",
-        "imageAlt": "property-utility-mapper icon",
+        "imageAlt": "ErfPlan logo",
         "hrefLabel": "Read more"
       },
       "dap2d": {
@@ -86,19 +86,19 @@
     "status": "Status",
     "scope": "Scope",
     "projects": {
-      "pum": {
-        "title": "property-utility-mapper",
-        "metaTitle": "property-utility-mapper",
-        "metaDescription": "An open-source tool for mapping utilities across property records — built as a sketchbook for how HearthCode Studio wants to work.",
-        "intro": "An open-source tool that maps property records to utility providers. Built in Python, designed as a sketchbook — a place to explore workflows, patterns, and decisions before they move into client work.",
+      "erfplan": {
+        "title": "ErfPlan",
+        "metaTitle": "ErfPlan — Property mapping tool",
+        "metaDescription": "A browser-based map tool for Dutch homeowners to document what's underground and above ground on their property — utility lines, buildings, boundaries, and more.",
+        "intro": "A browser-based map tool that helps Dutch homeowners document exactly what's on their property — every utility line, building, boundary, and point of interest — on an interactive map with satellite imagery, Kadaster overlays, and GPS tracking.",
         "paragraphs": [
-          "The original problem is straightforward: when buying or managing property, you need to know which utility providers are connected — energy, water, internet. That information is scattered across multiple sources, in varying formats, and rarely ready to use.",
-          "PUM brings that data together into a single mapping. But the real purpose is broader: it serves as the studio's workshop. This is where conventions are tested, tooling is tried out, and architectural choices are made that later show up in client projects.",
-          "The project is open-source and in active development. Source code is on GitHub — contributions and feedback are welcome."
+          "When you own property, you need to know what's underground and where things are — drinking water, gas, electricity, sewage, internet. That information is scattered, outdated, or locked inside documents you can't easily share. ErfPlan brings it all together on one interactive map.",
+          "The tool runs entirely in your browser. No account needed, no data leaves your device — everything is stored locally using IndexedDB. You can draw utility lines by hand, walk them with GPS, or import existing GeoJSON data. Buildings can be drawn as polygons or pulled directly from the BAG (Kadaster) registry. Property boundaries, point objects like wells and valves, photo annotations — it's all there.",
+          "ErfPlan is open-source and bilingual (Dutch and English). Export your property map as GeoJSON, PNG, or PDF to share with contractors, municipalities, or fellow homeowners. Built with React, Leaflet, and Vite — designed to work offline as a Progressive Web App."
         ],
-        "stack": "Python · Open-source · CLI",
+        "stack": "React · Vite · Leaflet · TypeScript",
         "statusText": "In active development",
-        "scopeText": "Internal tooling project, open-source"
+        "scopeText": "Internal product, open-source"
       },
       "dap2d": {
         "title": "DAP2D — rebuild",

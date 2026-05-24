@@ -8,7 +8,7 @@ import { routing } from '@/i18n/routing';
 import type { Metadata } from 'next';
 
 // The same project keys used in Work.tsx — keeps everything in sync.
-export const projectSlugs = ['pum', 'dap2d', 'hearthcode'] as const;
+export const projectSlugs = ['erfplan', 'dap2d', 'hearthcode'] as const;
 export type ProjectSlug = (typeof projectSlugs)[number];
 
 function isValidSlug(slug: string): slug is ProjectSlug {
