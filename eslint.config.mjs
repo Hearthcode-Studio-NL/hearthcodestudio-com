@@ -35,7 +35,12 @@ const eslintConfig = defineConfig([
           alphabetize: { order: 'asc', caseInsensitive: true },
         },
       ],
-      'import/no-duplicates': 'warn',
+      // TODO: Re-enable after migrating to eslint-plugin-import-x (ESLint 9 compatible fork).
+      // eslint-plugin-import crashes on ImportDeclaration nodes in flat config, producing
+      // false-positive warnings on every file. import/order still works fine.
+      // Migration: npm rm eslint-plugin-import && npm i -D eslint-plugin-import-x
+      // Then change the import + plugin key from 'import' to 'import-x'.
+      'import/no-duplicates': 'off',
 
       '@typescript-eslint/no-unused-vars': [
         'warn',
@@ -48,6 +53,14 @@ const eslintConfig = defineConfig([
       'no-debugger': 'error',
       eqeqeq: ['error', 'always', { null: 'ignore' }],
       curly: ['error', 'multi-line'],
+    },
+  },
+  // Test files mock next/image with a plain <img> — suppress the "use next/image" warning
+  // and the a11y alt-text check on mock elements.
+  {
+    files: ['**/*.test.ts', '**/*.test.tsx'],
+    rules: {
+      '@next/next/no-img-element': 'off',
     },
   },
   prettierConfig,

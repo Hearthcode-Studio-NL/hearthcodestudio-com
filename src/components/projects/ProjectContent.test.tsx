@@ -44,8 +44,8 @@ vi.mock('@/i18n/navigation', () => ({
 
 vi.mock('next/image', () => ({
   default: (props: Record<string, unknown>) => {
-    const { fill, priority, unoptimized, ...rest } = props;
-    return <img {...(rest as React.ImgHTMLAttributes<HTMLImageElement>)} />;
+    const { fill: _fill, priority: _priority, unoptimized: _unoptimized, ...rest } = props;
+    return <img alt="" {...(rest as React.ImgHTMLAttributes<HTMLImageElement>)} />;
   },
 }));
 
@@ -58,14 +58,14 @@ describe('ProjectContent', () => {
   });
 
   it('renders a back link to /#work', () => {
-    render(<ProjectContent slug="pum" />);
+    render(<ProjectContent slug="erfplan" />);
 
     const backLink = screen.getByRole('link', { name: /backToHome/i });
     expect(backLink).toHaveAttribute('href', '/#work');
   });
 
-  it('shows the GitHub link for pum', () => {
-    render(<ProjectContent slug="pum" />);
+  it('shows the GitHub link for erfplan', () => {
+    render(<ProjectContent slug="erfplan" />);
 
     const githubLink = screen.getByRole('link', { name: /viewOnGitHub/i });
     expect(githubLink).toHaveAttribute(
@@ -91,7 +91,7 @@ describe('ProjectContent', () => {
   });
 
   it('renders body paragraphs', () => {
-    render(<ProjectContent slug="pum" />);
+    render(<ProjectContent slug="erfplan" />);
 
     expect(screen.getByText('Paragraph one.')).toBeInTheDocument();
     expect(screen.getByText('Paragraph two.')).toBeInTheDocument();

@@ -32,8 +32,8 @@ vi.mock('@/i18n/navigation', () => ({
 
 vi.mock('next/image', () => ({
   default: (props: Record<string, unknown>) => {
-    const { fill, priority, unoptimized, ...rest } = props;
-    return <img {...(rest as React.ImgHTMLAttributes<HTMLImageElement>)} />;
+    const { fill: _fill, priority: _priority, unoptimized: _unoptimized, ...rest } = props;
+    return <img alt="" {...(rest as React.ImgHTMLAttributes<HTMLImageElement>)} />;
   },
 }));
 
@@ -62,7 +62,7 @@ describe('Work', () => {
     const links = within(list).getAllByRole('link');
 
     const hrefs = links.map((l) => l.getAttribute('href'));
-    expect(hrefs).toContain('/projects/pum');
+    expect(hrefs).toContain('/projects/erfplan');
     expect(hrefs).toContain('/projects/dap2d');
     expect(hrefs).toContain('/projects/hearthcode');
   });

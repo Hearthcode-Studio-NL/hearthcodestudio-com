@@ -16,8 +16,8 @@ vi.mock('next-intl', () => ({
 
 vi.mock('next/image', () => ({
   default: (props: Record<string, unknown>) => {
-    const { fill, priority, unoptimized, ...rest } = props;
-    return <img {...(rest as React.ImgHTMLAttributes<HTMLImageElement>)} />;
+    const { fill: _fill, priority: _priority, unoptimized: _unoptimized, ...rest } = props;
+    return <img alt="" {...(rest as React.ImgHTMLAttributes<HTMLImageElement>)} />;
   },
 }));
 
