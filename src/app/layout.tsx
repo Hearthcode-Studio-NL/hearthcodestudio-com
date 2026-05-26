@@ -1,5 +1,6 @@
 import { getLocale } from 'next-intl/server';
 
+import { Plausible } from '@/components/analytics/Plausible';
 import { cinzel, cormorantGaramond, inter } from '@/fonts/fonts';
 
 import type { Metadata, Viewport } from 'next';
@@ -64,7 +65,12 @@ export default async function RootLayout({ children }: Readonly<Props>) {
       style={fontVariables}
       suppressHydrationWarning
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        {children}
+        {/* Renders nothing unless NEXT_PUBLIC_PLAUSIBLE_DOMAIN is set —
+            keeps dev, preview, and Lighthouse runs analytics-free. */}
+        <Plausible />
+      </body>
     </html>
   );
 }

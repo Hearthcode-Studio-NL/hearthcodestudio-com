@@ -25,11 +25,17 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline'",
+      // In dev mode, React uses eval() for stack trace debugging — it never
+      // does this in production. Without 'unsafe-eval' here, the dev overlay
+      // shows a CSP error on every page load.
+      // Plausible analytics script loads from plausible.io in production
+      // when NEXT_PUBLIC_PLAUSIBLE_DOMAIN is set (otherwise nothing loads).
+      `script-src 'self' 'unsafe-inline' https://plausible.io${process.env.NODE_ENV === 'development' ? " 'unsafe-eval'" : ''}`,
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data:",
       "font-src 'self'",
-      "connect-src 'self'",
+      // Plausible posts page-view events back to its API.
+      "connect-src 'self' https://plausible.io",
       "frame-ancestors 'none'",
       "object-src 'none'",
       "base-uri 'self'",
@@ -96,6 +102,14 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Pin Turbopack's root to THIS project directory. Without this, Turbopack
+  // walks up the filesystem looking for lockfiles and may pick a parent
+  // directory (e.g. C:\Users\Wijna\) as the root — breaking relative imports
+  // like ../styles/brand-tokens.css in globals.css.
+  turbopack: {
+    root: import.meta.dirname,
+  },
+
   async headers() {
     return [
       {
