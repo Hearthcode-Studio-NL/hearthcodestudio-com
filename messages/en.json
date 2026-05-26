@@ -1,13 +1,4 @@
 {
-  "Metadata": {
-    "title": "HearthCode Studio — Digital craft, deeply rooted.",
-    "titleTemplate": "%s — HearthCode Studio",
-    "description": "A one-person digital studio in the Netherlands — delivering apps, websites, and IT advisory to clients who want digital work done thoughtfully. Twenty years of business-analyst experience applied at the craft-studio scale.",
-    "ogTitle": "HearthCode Studio — Digital craft, deeply rooted.",
-    "ogDescription": "Apps, websites, and IT advisory — digital work done thoughtfully.",
-    "twitterTitle": "HearthCode Studio — Digital craft, deeply rooted.",
-    "twitterDescription": "Apps, websites, and IT advisory — digital work done thoughtfully."
-  },
   "SkipLink": {
     "label": "Skip to main content"
   },
@@ -18,23 +9,6 @@
     "contact": "Contact",
     "menuOpen": "Open menu",
     "menuClose": "Close menu"
-  },
-  "Hero": {
-    "tagline": "Digital craft, deeply rooted.",
-    "description": "Apps, websites, and IT advisory — built for clients who want digital work done thoughtfully.",
-    "cta": "Start a conversation"
-  },
-  "Approach": {
-    "heading": "The approach",
-    "p1": "The approach combines business analysis with technical execution — understanding the real problem before proposing a solution, then building it with precision. Whether it's designing a consumer app, a professional website, or helping a team think through a technology decision, each engagement starts with the questions most skip.",
-    "p2": "Based in the Netherlands, working with clients worldwide. Expect clear communication, considered trade-offs, and digital products built with respect for the people who'll use them."
-  },
-  "Person": {
-    "heading": "The person behind",
-    "p1": "I'm Wijnand. For more than twenty years I've worked as a business analyst in banking and financial services — mostly in Investments and Securities — translating between what business leaders need and what technology teams build. That translation work is where I've learned most: how to ask the questions that shape the real problem, how to scope solutions that hold up under pressure, and how to make sure the final output actually serves the people who use it.",
-    "p2": "HearthCode Studio is where I apply that experience outside the corporate context. The same care I bring to complex financial systems, now directed at apps, websites, and technology advice for clients who want work done thoughtfully.",
-    "p3": "I care about using AI tools deliberately rather than just quickly, about strategy over pure execution, and about digital products that respect the people who'll eventually use them. Good technology is rarely the loudest or the newest — it's the work that clearly understood what it needed to be.",
-    "based": "Based in the Netherlands. Working with clients worldwide."
   },
   "Work": {
     "heading": "Work",
@@ -63,16 +37,6 @@
         "hrefLabel": "Read more"
       }
     }
-  },
-  "Contact": {
-    "heading": "Start a conversation",
-    "description": "Email is the best way in. Expect a reply within a day or two — usually sooner, occasionally slower when something non-trivial is in flight."
-  },
-  "Footer": {
-    "copyright": "© 2026 HearthCode Studio",
-    "privacy": "Privacy",
-    "accessibility": "Accessibility",
-    "socialLinksLabel": "Social links"
   },
   "LanguageSwitcher": {
     "switchTo": "Nederlands",
@@ -129,5 +93,41 @@
         "scopeText": "Studio website — open-source"
       }
     }
+  },
+  "Metadata": {
+    "title": "HearthCode Studio — Digital craft, deeply rooted.",
+    "titleTemplate": "%s — HearthCode Studio",
+    "description": "A one-person digital studio in the Netherlands — delivering apps, websites, and IT advisory to clients who want digital work done thoughtfully. Twenty years of business-analyst experience applied at the craft-studio scale.",
+    "ogTitle": "HearthCode Studio — Digital craft, deeply rooted.",
+    "ogDescription": "Apps, websites, and IT advisory — digital work done thoughtfully.",
+    "twitterTitle": "HearthCode Studio — Digital craft, deeply rooted.",
+    "twitterDescription": "Apps, websites, and IT advisory — digital work done thoughtfully."
+  },
+  "Hero": {
+    "tagline": "Digital craft, deeply rooted.",
+    "description": "Apps, websites, and IT advise — built for clients who want digital work done thoughtfully.",
+    "cta": "Start a conversation"
+  },
+  "Approach": {
+    "heading": "The approach",
+    "p1": "The approach combines business analysis with technical execution — understanding the real problem before proposing a solution, then building it with precision. Whether it's designing a consumer app, a professional website, or helping a team think through a technology decision, each engagement starts with the questions most skip.",
+    "p2": "Based in the Netherlands, working with clients worldwide. Expect clear communication, considered trade-offs, and digital products built with respect for the people who'll use them."
+  },
+  "Person": {
+    "heading": "The person behind",
+    "p1": "I'm Wijnand. For more than twenty years I've worked as a business analyst in banking and financial services — mostly in Investments and Securities — translating between what business leaders need and what technology teams build. That translation work is where I've learned most: how to ask the questions that shape the real problem, how to scope solutions that hold up under pressure, and how to make sure the final output actually serves the people who use it.",
+    "p2": "HearthCode Studio is where I apply that experience outside the corporate context. The same care I bring to complex financial systems, now directed at apps, websites, and technology advice for clients who want work done thoughtfully.",
+    "p3": "I care about using AI tools deliberately rather than just quickly, about strategy over pure execution, and about digital products that respect the people who'll eventually use them. Good technology is rarely the loudest or the newest — it's the work that clearly understood what it needed to be.",
+    "based": "Based in the Netherlands. Working with clients worldwide."
+  },
+  "Contact": {
+    "heading": "Start a conversation",
+    "description": "Email is the best way in. Expect a reply within a day or two — usually sooner, occasionally slower when something non-trivial is in flight."
+  },
+  "Footer": {
+    "copyright": "© 2026 HearthCode Studio",
+    "privacy": "Privacy",
+    "accessibility": "Accessibility",
+    "socialLinksLabel": "Social links"
   }
 }

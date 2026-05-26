@@ -82,13 +82,18 @@ export default async function LocaleLayout({ children, params }: Readonly<Props>
   // so it doesn't need to read it from headers (which forces dynamic)
   setRequestLocale(locale);
 
+  // Resolve the SkipLink label from messages/*.json (per-locale).
+  // Driving this off i18n means adding a third locale won't reintroduce
+  // the hardcoded EN/NL ternary that lived here before.
+  const tSkip = await getTranslations({ locale, namespace: 'SkipLink' });
+
   return (
     <>
       <a
         href="#main"
         className="focus:bg-primary sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:px-4 focus:py-2 focus:font-semibold focus:text-[color:var(--fg-on-gold)]"
       >
-        {locale === 'nl' ? 'Ga naar hoofdinhoud' : 'Skip to main content'}
+        {tSkip('label')}
       </a>
       <NextIntlClientProvider>
         <Header />
