@@ -8,7 +8,14 @@
 #                 SARIF upload to Code Scanning now works.)
 #   full        — Playwright (smoke + a11y) against a production build.
 #                 Blocks on PR and merge-to-main.
-#   lighthouse  — PR-only performance + a11y + SEO check. Blocks on PR.
+#   lighthouse  — PR-only performance + a11y + SEO check against the
+#                 live production URL (NOT the PR's build). This is
+#                 intentional — see lighthouserc.cjs and proxy.ts: the
+#                 noindex header on non-production hosts would force the
+#                 `is-crawlable` SEO audit to fail. So this job acts as a
+#                 production health monitor, not a PR-bundle audit. The
+#                 `full` job (Playwright + axe) already exercises the PR
+#                 bundle. Blocks on PR.
 
 name: CI
 
@@ -32,6 +39,8 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - name: Generate TinaCMS client
+        run: npx tinacms build
       - run: npm run lint
       - run: npm run typecheck
       - run: npm run test:run
@@ -91,7 +100,10 @@ jobs:
           retention-days: 7
 
   lighthouse:
-    name: Lighthouse CI
+    # Runs against https://hearthcodestudio.com (the live site) — see
+    # the comment block at the top of this file. This is a production
+    # monitor, not a PR-build audit.
+    name: Lighthouse (production monitor)
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     needs: [fast]

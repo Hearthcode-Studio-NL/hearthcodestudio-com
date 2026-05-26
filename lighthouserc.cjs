@@ -12,11 +12,11 @@ module.exports = {
     collect: {
       url: [
         'https://hearthcodestudio.com/nl',
-        'https://hearthcodestudio.com/nl/projects/pum',
+        'https://hearthcodestudio.com/nl/projects/erfplan',
         'https://hearthcodestudio.com/nl/privacy',
         'https://hearthcodestudio.com/nl/toegankelijkheidsverklaring',
         'https://hearthcodestudio.com/en',
-        'https://hearthcodestudio.com/en/projects/pum',
+        'https://hearthcodestudio.com/en/projects/erfplan',
       ],
       // 5 runs so the median filters out cold-start outliers on shared
       // runners. With 3 runs a single bad start could tank the result;
