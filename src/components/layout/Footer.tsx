@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 
 import { Link } from '@/i18n/navigation';
 import { company } from '@/lib/company';
+import { goldGlowIconLink, goldGlowTextLinkSm } from '@/lib/styles';
 
 type Social = {
   name: string;
@@ -27,20 +28,6 @@ const socials: Social[] = [
     icon: '/brand/icons/social/instagram-128.png',
   },
 ];
-
-const socialLinkClass = [
-  'inline-flex items-center justify-center rounded-full p-2',
-  'transition',
-  'hover:[filter:var(--filter-glow-gold)]',
-  'focus-visible:[filter:var(--filter-glow-gold)]',
-  'focus-visible:outline-none',
-].join(' ');
-
-const footerLinkClass = [
-  'no-underline transition',
-  'hover:no-underline hover:[text-shadow:var(--text-glow-gold-sm)]',
-  'focus-visible:no-underline focus-visible:[text-shadow:var(--text-glow-gold-sm)] focus-visible:outline-none',
-].join(' ');
 
 export function Footer() {
   const t = useTranslations('Footer');
@@ -69,7 +56,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.name}
-                className={socialLinkClass}
+                className={goldGlowIconLink}
               >
                 <Image src={social.icon} alt="" width={48} height={48} className="h-12 w-12" />
               </a>
@@ -78,12 +65,12 @@ export function Footer() {
         </ul>
         <ul className="flex justify-center gap-6 md:justify-end">
           <li>
-            <Link href="/privacy" className={footerLinkClass}>
+            <Link href="/privacy" className={goldGlowTextLinkSm}>
               {t('privacy')}
             </Link>
           </li>
           <li>
-            <Link href="/toegankelijkheidsverklaring" className={footerLinkClass}>
+            <Link href="/toegankelijkheidsverklaring" className={goldGlowTextLinkSm}>
               {t('accessibility')}
             </Link>
           </li>

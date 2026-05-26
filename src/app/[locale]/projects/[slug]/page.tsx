@@ -4,16 +4,12 @@ import { use } from 'react';
 
 import { ProjectContent } from '@/components/projects/ProjectContent';
 import { routing } from '@/i18n/routing';
+import { isValidSlug, projectSlugs } from '@/lib/projects';
 
 import type { Metadata } from 'next';
 
-// The same project keys used in Work.tsx — keeps everything in sync.
-export const projectSlugs = ['erfplan', 'dap2d', 'hearthcode'] as const;
-export type ProjectSlug = (typeof projectSlugs)[number];
-
-function isValidSlug(slug: string): slug is ProjectSlug {
-  return (projectSlugs as readonly string[]).includes(slug);
-}
+// Slug list + type-guard come from `@/lib/projects` so this route, Work.tsx,
+// ProjectContent, and the sitemap all read from one source.
 
 // Pre-render every locale x slug combination at build time.
 export function generateStaticParams() {

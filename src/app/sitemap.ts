@@ -1,4 +1,5 @@
 import { routing } from '@/i18n/routing';
+import { projects } from '@/lib/projects';
 
 import type { MetadataRoute } from 'next';
 
@@ -6,15 +7,23 @@ import type { MetadataRoute } from 'next';
 // Search engines use this to discover all language variants of each page.
 // The `alternates.languages` object tells Google/Bing that /nl/privacy
 // and /en/privacy are translations of each other (hreflang).
+//
+// Project URLs are derived from `@/lib/projects` so adding a new project
+// is one INSERT into the registry — no risk of forgetting to update the
+// sitemap.
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://hearthcodestudio.com';
   const lastModified = new Date();
 
+  const projectPages = projects.map((p) => ({
+    path: `/projects/${p.slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
   const pages = [
     { path: '/', changeFrequency: 'monthly' as const, priority: 1.0 },
-    { path: '/projects/erfplan', changeFrequency: 'monthly' as const, priority: 0.7 },
-    { path: '/projects/dap2d', changeFrequency: 'monthly' as const, priority: 0.7 },
-    { path: '/projects/hearthcode', changeFrequency: 'monthly' as const, priority: 0.7 },
+    ...projectPages,
     { path: '/privacy', changeFrequency: 'yearly' as const, priority: 0.3 },
     {
       path: '/toegankelijkheidsverklaring',

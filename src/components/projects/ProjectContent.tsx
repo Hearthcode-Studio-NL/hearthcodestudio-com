@@ -1,33 +1,16 @@
-'use client';
-
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 import { Link } from '@/i18n/navigation';
+import { getProject } from '@/lib/projects';
+import { goldOutlineButton } from '@/lib/styles';
 
-// Non-translatable project metadata: images and external links.
-const projectMeta: Record<string, { image: string; github?: string; site?: string }> = {
-  erfplan: {
-    image: '/brand/projects/erfplan-logo.png',
-    github: 'https://github.com/Hearthcode-Studio-NL/property-utility-mapper',
-  },
-  dap2d: {
-    image: '/brand/projects/dap2d-mark.png',
-    site: 'https://dap2d.nl',
-  },
-  hearthcode: {
-    image: '/brand/logo-full-default.svg',
-    github: 'https://github.com/Hearthcode-Studio-NL/hearthcodestudio-com',
-  },
-};
-
-// Shared class for external-link buttons (GitHub, live site).
-const externalLinkClass = [
-  'inline-flex items-center gap-2 rounded-lg border border-[color:var(--color-accent-gold)]',
-  'px-5 py-2.5 text-sm font-medium text-[color:var(--color-accent-gold)] no-underline transition',
-  'hover:bg-[color:var(--color-accent-gold)]/10 hover:no-underline',
-  'focus-visible:ring-2 focus-visible:ring-[color:var(--color-accent-gold)] focus-visible:outline-none',
-].join(' ');
+// Server component. `useTranslations` works in server components in
+// next-intl v3+, so we no longer need `'use client'` — saves hydration JS.
+//
+// Non-translatable project metadata (image, GitHub/site URL) comes from
+// `@/lib/projects` so this file, Work.tsx, the detail route, and the
+// sitemap all read from one source.
 
 type Props = {
   slug: string;
@@ -35,9 +18,9 @@ type Props = {
 
 export function ProjectContent({ slug }: Props) {
   const t = useTranslations('ProjectDetail');
-  const meta = projectMeta[slug];
+  const project = getProject(slug);
 
-  if (!meta) return null;
+  if (!project) return null;
 
   // t.raw() returns the raw JSON value — for arrays it gives us
   // the actual string[] without probing individual indices.
@@ -58,11 +41,11 @@ export function ProjectContent({ slug }: Props) {
       <div className="mb-10 flex flex-col items-start gap-8 sm:flex-row sm:items-center">
         <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-lg border border-[color:var(--color-border)] bg-[color:var(--color-bg-primary)] p-3">
           <Image
-            src={meta.image}
+            src={project.image}
             alt=""
             width={80}
             height={80}
-            unoptimized={meta.image.endsWith('.svg')}
+            unoptimized={project.image.endsWith('.svg')}
             className="h-full w-auto object-contain"
           />
         </div>
@@ -101,23 +84,23 @@ export function ProjectContent({ slug }: Props) {
 
       {/* External links */}
       <div className="mt-10 flex flex-wrap gap-4">
-        {meta.github && (
+        {project.github && (
           <a
-            href={meta.github}
+            href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className={externalLinkClass}
+            className={goldOutlineButton}
           >
             {t('viewOnGitHub')}
             <span aria-hidden="true">{'→'}</span>
           </a>
         )}
-        {meta.site && (
+        {project.site && (
           <a
-            href={meta.site}
+            href={project.site}
             target="_blank"
             rel="noopener noreferrer"
-            className={externalLinkClass}
+            className={goldOutlineButton}
           >
             {t('visitSite')}
             <span aria-hidden="true">{'→'}</span>

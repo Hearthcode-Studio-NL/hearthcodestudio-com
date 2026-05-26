@@ -4,21 +4,12 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Link, usePathname } from '@/i18n/navigation';
+import { goldGlowTextLink } from '@/lib/styles';
 
-const navLinkClass = [
-  'text-[color:var(--color-accent-gold)] no-underline',
-  'transition',
-  'hover:no-underline hover:[text-shadow:var(--text-glow-gold)]',
-  'focus-visible:no-underline focus-visible:[text-shadow:var(--text-glow-gold)] focus-visible:outline-none',
-].join(' ');
-
-// Mobile menu link — larger tap targets, full-width
-const mobileLinkClass = [
-  'block py-3 text-lg text-[color:var(--color-accent-gold)] no-underline',
-  'transition',
-  'hover:no-underline hover:[text-shadow:var(--text-glow-gold)]',
-  'focus-visible:no-underline focus-visible:[text-shadow:var(--text-glow-gold)] focus-visible:outline-none',
-].join(' ');
+// Desktop and mobile menu links share the same gold-glow recipe; only
+// sizing/layout differs. The recipe lives in `@/lib/styles`.
+const navLinkClass = `text-[color:var(--color-accent-gold)] ${goldGlowTextLink}`;
+const mobileLinkClass = `block py-3 text-lg text-[color:var(--color-accent-gold)] ${goldGlowTextLink}`;
 
 // Language switcher — shows both options (NL / EN) with the active
 // one visually distinct. The inactive one is a link to the same page
