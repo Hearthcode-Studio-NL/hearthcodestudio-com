@@ -39,8 +39,6 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - name: Generate TinaCMS client
-        run: npx tinacms build
       - run: npm run lint
       - run: npm run typecheck
       - run: npm run test:run
