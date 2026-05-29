@@ -69,7 +69,7 @@
     "description": "E-mail is de beste manier om contact op te nemen. Verwacht een reactie binnen een dag of twee — meestal sneller, soms wat langer wanneer er iets niet-triviaals in de lucht is."
   },
   "Footer": {
-    "copyright": "© 2026 HearthCode Studio",
+    "copyright": "© {year} HearthCode Studio",
     "privacy": "Privacy",
     "accessibility": "Toegankelijkheid",
     "socialLinksLabel": "Sociale links"

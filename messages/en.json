@@ -125,7 +125,7 @@
     "description": "Email is the best way in. Expect a reply within a day or two — usually sooner, occasionally slower when something non-trivial is in flight."
   },
   "Footer": {
-    "copyright": "© 2026 HearthCode Studio",
+    "copyright": "© {year} HearthCode Studio",
     "privacy": "Privacy",
     "accessibility": "Accessibility",
     "socialLinksLabel": "Social links"

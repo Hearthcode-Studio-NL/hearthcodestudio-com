@@ -36,7 +36,7 @@ export function Footer() {
     <footer className="mt-24 border-t border-[color:var(--color-border)]">
       <div className="mx-auto flex max-w-5xl flex-col gap-6 px-6 py-10 text-sm text-[color:var(--color-accent-gold)] md:grid md:grid-cols-3 md:items-center md:gap-4">
         <div className="text-center md:text-left">
-          <div>{t('copyright')}</div>
+          <div>{t('copyright', { year: new Date().getFullYear() })}</div>
           <div className="mt-1">
             <abbr title="Kamer van Koophandel" className="no-underline">
               KvK
